@@ -530,7 +530,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7SJGX4PXZ2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = toDoList/Info.plist;
+				INFOPLIST_FILE = TodoListNotesApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TodoListNotesApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -561,7 +561,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7SJGX4PXZ2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = toDoList/Info.plist;
+				INFOPLIST_FILE = TodoListNotesApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TodoListNotesApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
