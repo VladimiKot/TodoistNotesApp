@@ -30,11 +30,14 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
  
  @IBAction func pushAddItem(_ sender: Any) {
      let noteController = storyboard?.instantiateViewController(withIdentifier: "NoteController") as! NoteController
-     noteController.NoteItemStorage = noteStorage
-     noteController.onClosed = { self.tableView.reloadData() }
-     navigationController?.pushViewController(noteController, animated: true)
-     tableView.reloadData()
-     
+     self.navigationController?.pushViewController(noteController, animated: true)
+     noteController.noteItemStorage = noteStorage
+     noteController.onClosed = { [weak self] in
+         self?.noteStorage.getAllNotes { allNotes in
+             self?.allNotes = allNotes
+             self?.tableView.reloadData()
+         }
+     }
  }
  
  private func setupView() {
@@ -70,16 +73,15 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
          return filtredDataNotes.count
          
      }
-//     if countNotes == 0 {
-//         countAllNotes.isHidden = true
-//     } else if countNotes == 1 {
-//         countAllNotes.isHidden = false
-//         countAllNotes.text = "\(countNotes) note"
-//     } else {
-//         countAllNotes.isHidden = false
-//         countAllNotes.text = "\(countNotes) notes"
-//
-//     }
+     if countNotes == 0 {
+         countAllNotes.isHidden = true
+     } else if countNotes == 1 {
+         countAllNotes.isHidden = false
+         countAllNotes.text = "\(countNotes) note"
+     } else {
+         countAllNotes.isHidden = false
+         countAllNotes.text = "\(countNotes) notes"
+     }
      
      return countNotes
  }
@@ -109,9 +111,6 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
              cellImage.imageChek.image = UIImage(named: "noChek")
          
          }
-         
-         print(self.noteStorage.dictonaryNotes)
-         print(self.allNotes)
      }
      
      if tableView.isEditing {
@@ -150,10 +149,10 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
  
  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
      tableView.deselectRow(at: indexPath, animated: true)
-     let toDoController = storyboard?.instantiateViewController(withIdentifier: "NoteController") as! NoteController
+     let noteController = storyboard?.instantiateViewController(withIdentifier: "NoteController") as! NoteController
      let getNote = allNotes[indexPath.row]
-     toDoController.configure(with: getNote.title, with: getNote.description, isEditType: true)
-     navigationController?.pushViewController(toDoController, animated: true)
+     noteController.configure(with: getNote.title, with: getNote.description, isEditType: true)
+     navigationController?.pushViewController(noteController, animated: true)
  }
  
 }

@@ -10,7 +10,7 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var isEditScreenType: Bool = false
     @IBOutlet weak var tableView: UITableView!
-    var NoteItemStorage: NoteStorage?
+    var noteItemStorage: NoteStorage?
     let idCellTitle = "TableViewCellNoteTitle"
     let idCellDescription = "TableViewCellNoteDescription"
     let idCellButton = "TableViewCellButton"
@@ -75,7 +75,7 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                       title: self.textTitle,
                                       id: self.id,
                                       completed: false)
-                self.NoteItemStorage?.addNote(note: note) { _ in
+                self.noteItemStorage?.addNote(note: note) { _ in
                 }
                 self.onClosed?()
                 self.navigationController?.popViewController(animated: true)
