@@ -8,6 +8,7 @@ import UIKit
 
 class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let router: Router = Router()
     var isEditScreenType: Bool = false
     @IBOutlet weak var tableView: UITableView!
     var noteItemStorage: NoteStorage?
@@ -18,7 +19,6 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var textTitle = ""
     var noteDescription = ""
     var id = ""
-
     
     public func configure(with title: String,
                           with description: String,
@@ -52,8 +52,8 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.updateTitle(with: textTitle)
             }
             cell.configure()
-            cell.onTitleEdit = { text in
-                self.textTitle = text
+            cell.onTitleEdit = { [weak self] text in
+                self?.textTitle = text
             }
             cell.selectionStyle = .none
             tableViewCell = cell
@@ -63,8 +63,8 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.updateDescription(with: noteDescription)
             }
             cell.conifgure()
-            cell.onDescriptionEdit = { text in
-                self.noteDescription = text
+            cell.onDescriptionEdit = { [weak self] text in
+                self?.noteDescription = text
             }
             cell.selectionStyle = .none
             tableViewCell = cell
@@ -75,11 +75,11 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                       title: self.textTitle,
                                       id: self.id,
                                       completed: false)
-                self.noteItemStorage?.addNote(note: note) { _ in
+                self.noteItemStorage?.addNote(note: note) { [weak self] _ in
+                    
+                    self?.onClosed?()
+                    self?.router.closeController(controller: self!)
                 }
-                self.onClosed?()
-                self.navigationController?.popViewController(animated: true)
-                
             }
             tableViewCell = cell
         }
@@ -102,9 +102,7 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             return 50
         }
-            
     }
-
 }
 
 

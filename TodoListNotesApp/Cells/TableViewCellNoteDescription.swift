@@ -4,14 +4,14 @@
 import UIKit
 
 class TableViewCellNoteDescription: UITableViewCell {
-
+    
     @IBOutlet weak var noteDescription: UITextView!
     var onDescriptionEdit: ((String) -> Void)?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         noteDescription.becomeFirstResponder()
@@ -32,7 +32,7 @@ class TableViewCellNoteDescription: UITableViewCell {
         noteDescription.text = description
     }
 }
-    // MARK: - UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 extension TableViewCellNoteDescription: UITextViewDelegate {
     
     func textViewDidChangeSelection(_ textView: UITextView) {

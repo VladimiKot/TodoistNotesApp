@@ -18,10 +18,10 @@ class APIClient {
         self.session = URLSession(configuration: sessionConfiguration)
     }
     private func makeRequest<T:Decodable, E: Encodable>(url: URL?,
-                                          httpMethod: String,
-                                          data: E?,
-                                          parameters: [String: Any],
-                                          completion: @escaping (Result<T?, Error>) -> Void) {
+                                                        httpMethod: String,
+                                                        data: E?,
+                                                        parameters: [String: Any],
+                                                        completion: @escaping (Result<T?, Error>) -> Void) {
         
         guard let url = url else { return }
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
@@ -30,19 +30,17 @@ class APIClient {
         }
         urlComponents?.queryItems = queryItems
         var request = URLRequest(url: (urlComponents?.url)!)
-
+        
         request.httpMethod = httpMethod
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer 12575b749c2df9c83517483db37475887d5b26e5", forHTTPHeaderField: "Authorization")
         request.addValue(uuid, forHTTPHeaderField: "X-Request-Id")
-        
         
         if let data = data {
             let encodedData = try? JSONEncoder().encode(data)
             request.httpBody = encodedData
         }
         
-         
         let task = session.dataTask(with: request) { responseData, response, responseError in
             
             guard
@@ -106,6 +104,4 @@ class APIClient {
                     parameters: parameters,
                     completion: completion)
     }
-
-
 }

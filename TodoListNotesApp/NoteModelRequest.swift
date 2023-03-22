@@ -11,9 +11,9 @@ struct NoteModelRequest: Encodable {
         case isCompleted = "is_completed"
         
     }
+    
     var content: String?
     var description: String?
     var isCompleted: Bool?
-    
     
 }

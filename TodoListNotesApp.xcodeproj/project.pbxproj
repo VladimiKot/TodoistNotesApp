@@ -10,6 +10,8 @@
 		B7275F6629C53DE500F0013B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6529C53DE500F0013B /* APIClient.swift */; };
 		B7275F6829C53DFF00F0013B /* NoteModelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6729C53DFF00F0013B /* NoteModelRequest.swift */; };
 		B7275F6A29C53E1C00F0013B /* NoteModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6929C53E1C00F0013B /* NoteModelResponse.swift */; };
+		B7275F6C29C9ECB500F0013B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6B29C9ECB500F0013B /* Router.swift */; };
+		B7275F6E29CA05A600F0013B /* NoteStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6D29CA05A600F0013B /* NoteStorageProtocol.swift */; };
 		B7880AB02920F67B00DB42D3 /* TableViewCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7880AAE2920F67B00DB42D3 /* TableViewCellButton.swift */; };
 		B7880AB12920F67B00DB42D3 /* TableViewCellButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7880AAF2920F67B00DB42D3 /* TableViewCellButton.xib */; };
 		B7880AB4292CD3A100DB42D3 /* TableViewCellFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7880AB2292CD3A100DB42D3 /* TableViewCellFirst.swift */; };
@@ -53,6 +55,8 @@
 		B7275F6529C53DE500F0013B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B7275F6729C53DFF00F0013B /* NoteModelRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModelRequest.swift; sourceTree = "<group>"; };
 		B7275F6929C53E1C00F0013B /* NoteModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModelResponse.swift; sourceTree = "<group>"; };
+		B7275F6B29C9ECB500F0013B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		B7275F6D29CA05A600F0013B /* NoteStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStorageProtocol.swift; sourceTree = "<group>"; };
 		B7880AAE2920F67B00DB42D3 /* TableViewCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellButton.swift; sourceTree = "<group>"; };
 		B7880AAF2920F67B00DB42D3 /* TableViewCellButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellButton.xib; sourceTree = "<group>"; };
 		B7880AB2292CD3A100DB42D3 /* TableViewCellFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellFirst.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				B7275F6729C53DFF00F0013B /* NoteModelRequest.swift */,
 				B7275F6929C53E1C00F0013B /* NoteModelResponse.swift */,
 				B7A16F46290692E000126B56 /* NoteStorage.swift */,
+				B7275F6D29CA05A600F0013B /* NoteStorageProtocol.swift */,
 				B7A16F1A290685DD00126B56 /* Main.storyboard */,
 				B7A16F1F290685DF00126B56 /* LaunchScreen.storyboard */,
 				B7A16F4A290978B800126B56 /* Media.xcassets */,
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A16F442906926900126B56 /* NoteListController.swift */,
+				B7275F6B29C9ECB500F0013B /* Router.swift */,
 				B7A16F4C290A8F5E00126B56 /* NoteController.swift */,
 			);
 			path = Controllers;
@@ -346,6 +352,8 @@
 				B7275F6629C53DE500F0013B /* APIClient.swift in Sources */,
 				B794898C293943EB00BB8409 /* Note.swift in Sources */,
 				B7A16F17290685DD00126B56 /* SceneDelegate.swift in Sources */,
+				B7275F6C29C9ECB500F0013B /* Router.swift in Sources */,
+				B7275F6E29CA05A600F0013B /* NoteStorageProtocol.swift in Sources */,
 				B7880AB4292CD3A100DB42D3 /* TableViewCellFirst.swift in Sources */,
 				B7A16F50290B147000126B56 /* TableViewCellNoteTitle.swift in Sources */,
 				B7A16F47290692E000126B56 /* NoteStorage.swift in Sources */,
