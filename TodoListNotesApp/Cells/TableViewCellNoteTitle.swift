@@ -40,5 +40,5 @@ extension TableViewCellNoteTitle: UITextViewDelegate {
         guard let noteText = noteTitle.text, !noteText.isEmpty else { return }
         onTitleEdit?(noteText)
     }
-
+    
 }

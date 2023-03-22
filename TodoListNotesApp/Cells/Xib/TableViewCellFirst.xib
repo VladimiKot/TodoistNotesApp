@@ -17,14 +17,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iw-gM-g3c">
-                        <rect key="frame" x="38" y="0.5" width="42" height="23.5"/>
-                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
+                        <rect key="frame" x="38" y="4" width="44.5" height="20"/>
+                        <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ply-Ss-3aG">
-                        <rect key="frame" x="39" y="36" width="37.5" height="16"/>
-                        <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="16"/>
+                        <rect key="frame" x="39" y="36" width="36.5" height="16"/>
+                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -49,6 +49,7 @@
                     <constraint firstAttribute="bottom" secondItem="Ply-Ss-3aG" secondAttribute="bottom" constant="1" id="HNq-hR-ZZv"/>
                     <constraint firstItem="Ply-Ss-3aG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="MHf-Si-caQ"/>
                     <constraint firstItem="Ply-Ss-3aG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="39" id="Sek-NS-Uip"/>
+                    <constraint firstAttribute="bottom" secondItem="Ply-Ss-3aG" secondAttribute="bottom" constant="1" id="XBC-G3-9aO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

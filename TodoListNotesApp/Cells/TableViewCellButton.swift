@@ -5,13 +5,13 @@ import UIKit
 
 class TableViewCellButton: UITableViewCell {
     var onButtonTap: (() -> Void)?
-
+    
     @IBAction func addItemCellButton(_ sender: Any) {
         
         onButtonTap?()
     }
     @IBOutlet weak var button: UIButton!
-
+    
     override func awakeFromNib() {
         button.frame.size.width = 5
         button.frame.size.height = 5
@@ -27,5 +27,5 @@ class TableViewCellButton: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
 }

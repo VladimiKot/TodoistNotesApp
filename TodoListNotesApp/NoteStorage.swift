@@ -20,7 +20,6 @@ class NoteStorage {
         }
     }
 
-    
     private func mapRequest(note: Note) -> NoteModelRequest {
         let noteRequest = NoteModelRequest(content: note.title,
                                            description: note.description,
@@ -47,7 +46,9 @@ class NoteStorage {
         return notes
     }
     
- 
+}
+
+extension NoteStorage : NoteStorageProtocol {
     
     func addNote(note: Note, completion: @escaping ((Note) -> Void)) {
         let noteRequestModel = mapRequest(note: note)
@@ -61,15 +62,13 @@ class NoteStorage {
                     self.dictonaryNotes.updateValue((note?.isCompleted)!, forKey: (note?.id)!)
                 }
                 let noteModel = mapResponse(noteResponse: note!)
-                self.storage.append(noteModel)
+  //              self.storage.append(noteModel)
                 completion(noteModel)
             case .failure(_):
                 print("Error")
             }
         }
     }
-    
-    
     
     func removeNote(id: String, completion: @escaping (([Note]) -> Void)) {
         guard let url = URL(string: "https://api.todoist.com/rest/v2/tasks/\(id)") else { return }
@@ -124,11 +123,5 @@ class NoteStorage {
             }
         }
         return nil
-    }
-    
-    func moveItem(fromIndex: Int, toIndex: Int) {
-        let from = storage[fromIndex]
-        storage.remove(at: fromIndex)
-        storage.insert(from, at: toIndex)
     }
 }
