@@ -19,36 +19,31 @@ class NoteStorage {
             return retrieveDictionaryNotes
         }
     }
-
-    private func mapRequest(note: Note) -> NoteModelRequest {
-        let noteRequest = NoteModelRequest(content: note.title,
-                                           description: note.description,
-                                           isCompleted: note.completed)
-        return noteRequest
-    }
-    
-    private func mapResponse(noteResponse: NoteModelResponse) -> Note {
-        let noteResponse = Note(description: noteResponse.description!,
-                                title: noteResponse.content!,
-                                id: noteResponse.id!,
-                                completed: dictonaryNotes[noteResponse.id!] ?? false)
-        
-        return noteResponse
-    }
-    
-    private func mapAllNotes(noteResponse: [NoteModelResponse]) -> [Note] {
-        var notes: [Note] = []
-        for note in noteResponse {
-            let responseModel = self.mapResponse(noteResponse: note)
-            notes.append(contentsOf: [responseModel])
-        }
-        storage.append(contentsOf: notes)
-        return notes
-    }
-    
 }
 
+// MARK: NoteStorageProtocol
+
 extension NoteStorage : NoteStorageProtocol {
+    
+    func update(note: Note) -> [Note] {
+        var notes: [Note] = []
+        var index = 0
+        
+        for i in storage {
+            if i.id == note.id {
+                self.storage.remove(at: index)
+                self.dictonaryNotes.removeValue(forKey: note.id)
+                
+                break
+            }
+            index += 1
+        }
+        
+        storage.insert(note, at: index)
+        self.dictonaryNotes.updateValue(note.completed, forKey: note.id)
+        notes = storage
+        return notes
+    }
     
     func addNote(note: Note, completion: @escaping ((Note) -> Void)) {
         let noteRequestModel = mapRequest(note: note)
@@ -62,7 +57,6 @@ extension NoteStorage : NoteStorageProtocol {
                     self.dictonaryNotes.updateValue((note?.isCompleted)!, forKey: (note?.id)!)
                 }
                 let noteModel = mapResponse(noteResponse: note!)
-  //              self.storage.append(noteModel)
                 completion(noteModel)
             case .failure(_):
                 print("Error")
@@ -88,7 +82,6 @@ extension NoteStorage : NoteStorageProtocol {
                     }
                     index += 1
                 }
-                
             case .failure(_):
                 print("Error")
             }
@@ -123,5 +116,37 @@ extension NoteStorage : NoteStorageProtocol {
             }
         }
         return nil
+    }
+}
+
+//MARK: private NoteStorage FUNC
+
+private extension NoteStorage {
+    
+    func mapRequest(note: Note) -> NoteModelRequest {
+        let noteRequest = NoteModelRequest(content: note.title,
+                                           description: note.description,
+                                           isCompleted: note.completed)
+        return noteRequest
+    }
+    
+    func mapResponse(noteResponse: NoteModelResponse) -> Note {
+        let noteResponse = Note(description: noteResponse.description!,
+                                title: noteResponse.content!,
+                                id: noteResponse.id!,
+                                completed: dictonaryNotes[noteResponse.id!] ?? false)
+        
+        return noteResponse
+    }
+    
+    func mapAllNotes(noteResponse: [NoteModelResponse]) -> [Note] {
+        var notes: [Note] = []
+        for note in noteResponse {
+            let responseModel = self.mapResponse(noteResponse: note)
+            notes.append(contentsOf: [responseModel])
+        }
+        
+        storage.append(contentsOf: notes)
+        return notes
     }
 }

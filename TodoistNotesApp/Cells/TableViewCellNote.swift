@@ -3,8 +3,8 @@
 
 import UIKit
 
-class TableViewCellFirst: UITableViewCell {
-    
+class TableViewCellNote: UITableViewCell {
+
     @IBOutlet weak var imageChek: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -13,7 +13,17 @@ class TableViewCellFirst: UITableViewCell {
     
     @IBAction func changeImageChek(_ sender: Any) {
         changeButtonTap?()
+    }
+    
+    func updateNote(note: Note) {
+        descLabel.text = note.title
+        titleLabel.text = note.description
         
+        if note.completed == true {
+            imageChek.image = UIImage(named: "chek")
+        } else {
+            imageChek.image = UIImage(named: "noChek")
+        }
         
     }
     

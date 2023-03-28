@@ -1,19 +1,21 @@
 //  TodoListNotesApp
 //  Created by Владимир on 18.03.2023.
 
-
 import Foundation
 
-struct NoteModelRequest: Encodable {
+struct NoteModelResponse: Decodable {
+    
     enum CodingKeys: String, CodingKey {
+
+        case isCompleted = "is_completed"
         case content
         case description
-        case isCompleted = "is_completed"
-        
+        case id
     }
     
+    var isCompleted: Bool?
     var content: String?
     var description: String?
-    var isCompleted: Bool?
+    var id: String?
     
 }

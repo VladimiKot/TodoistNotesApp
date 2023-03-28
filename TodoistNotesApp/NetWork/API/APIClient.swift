@@ -72,6 +72,11 @@ class APIClient {
         task.resume()
     }
     
+}
+
+// MARK: ApiClientProtocol
+
+extension APIClient: ApiClientProtocol {
     
     func getRequest<T: Decodable>(url: URL?,
                                   parameters: [String: Any],

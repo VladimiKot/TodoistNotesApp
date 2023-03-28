@@ -35,6 +35,7 @@ class TableViewCellNoteTitle: UITableViewCell {
 }
 
 // MARK: - UITextFieldDelegate
+
 extension TableViewCellNoteTitle: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         guard let noteText = noteTitle.text, !noteText.isEmpty else { return }
