@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B727175D29CC74920071A4F1 /* ApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B727175C29CC74920071A4F1 /* ApiClientProtocol.swift */; };
 		B7275F6629C53DE500F0013B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6529C53DE500F0013B /* APIClient.swift */; };
 		B7275F6829C53DFF00F0013B /* NoteModelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6729C53DFF00F0013B /* NoteModelRequest.swift */; };
 		B7275F6A29C53E1C00F0013B /* NoteModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6929C53E1C00F0013B /* NoteModelResponse.swift */; };
@@ -14,8 +15,8 @@
 		B7275F6E29CA05A600F0013B /* NoteStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6D29CA05A600F0013B /* NoteStorageProtocol.swift */; };
 		B7880AB02920F67B00DB42D3 /* TableViewCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7880AAE2920F67B00DB42D3 /* TableViewCellButton.swift */; };
 		B7880AB12920F67B00DB42D3 /* TableViewCellButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7880AAF2920F67B00DB42D3 /* TableViewCellButton.xib */; };
-		B7880AB4292CD3A100DB42D3 /* TableViewCellFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7880AB2292CD3A100DB42D3 /* TableViewCellFirst.swift */; };
-		B7880AB5292CD3A100DB42D3 /* TableViewCellFirst.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7880AB3292CD3A100DB42D3 /* TableViewCellFirst.xib */; };
+		B7880AB4292CD3A100DB42D3 /* TableViewCellNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7880AB2292CD3A100DB42D3 /* TableViewCellNote.swift */; };
+		B7880AB5292CD3A100DB42D3 /* TableViewCellNote.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7880AB3292CD3A100DB42D3 /* TableViewCellNote.xib */; };
 		B794898C293943EB00BB8409 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = B794898B293943EB00BB8409 /* Note.swift */; };
 		B7A16F15290685DD00126B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F14290685DD00126B56 /* AppDelegate.swift */; };
 		B7A16F17290685DD00126B56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F16290685DD00126B56 /* SceneDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B727175C29CC74920071A4F1 /* ApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientProtocol.swift; sourceTree = "<group>"; };
 		B7275F6529C53DE500F0013B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B7275F6729C53DFF00F0013B /* NoteModelRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModelRequest.swift; sourceTree = "<group>"; };
 		B7275F6929C53E1C00F0013B /* NoteModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModelResponse.swift; sourceTree = "<group>"; };
@@ -59,18 +61,18 @@
 		B7275F6D29CA05A600F0013B /* NoteStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStorageProtocol.swift; sourceTree = "<group>"; };
 		B7880AAE2920F67B00DB42D3 /* TableViewCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellButton.swift; sourceTree = "<group>"; };
 		B7880AAF2920F67B00DB42D3 /* TableViewCellButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellButton.xib; sourceTree = "<group>"; };
-		B7880AB2292CD3A100DB42D3 /* TableViewCellFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellFirst.swift; sourceTree = "<group>"; };
-		B7880AB3292CD3A100DB42D3 /* TableViewCellFirst.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellFirst.xib; sourceTree = "<group>"; };
+		B7880AB2292CD3A100DB42D3 /* TableViewCellNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellNote.swift; sourceTree = "<group>"; };
+		B7880AB3292CD3A100DB42D3 /* TableViewCellNote.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellNote.xib; sourceTree = "<group>"; };
 		B794898B293943EB00BB8409 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		B7A16F11290685DD00126B56 /* TodoListNotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoListNotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A16F11290685DD00126B56 /* TodoistNotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoistNotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A16F14290685DD00126B56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7A16F16290685DD00126B56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B7A16F1B290685DD00126B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7A16F20290685DF00126B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7A16F22290685DF00126B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7A16F27290685DF00126B56 /* TodoListNotesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListNotesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A16F27290685DF00126B56 /* TodoistNotesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoistNotesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A16F2B290685DF00126B56 /* toDoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDoListTests.swift; sourceTree = "<group>"; };
-		B7A16F31290685DF00126B56 /* TodoListNotesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListNotesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A16F31290685DF00126B56 /* TodoistNotesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoistNotesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A16F35290685DF00126B56 /* toDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDoListUITests.swift; sourceTree = "<group>"; };
 		B7A16F37290685DF00126B56 /* toDoListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDoListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B7A16F442906926900126B56 /* NoteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListController.swift; sourceTree = "<group>"; };
@@ -108,12 +110,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B727175E29CC8CF60071A4F1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B7275F6B29C9ECB500F0013B /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		B727175F29CC8D690071A4F1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B7275F6529C53DE500F0013B /* APIClient.swift */,
+				B727175C29CC74920071A4F1 /* ApiClientProtocol.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B727176029CC8D7C0071A4F1 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				B727175F29CC8D690071A4F1 /* API */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		B727176229CC8DC10071A4F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B794898B293943EB00BB8409 /* Note.swift */,
+				B7275F6729C53DFF00F0013B /* NoteModelRequest.swift */,
+				B7275F6929C53E1C00F0013B /* NoteModelResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B727176329CC8DDC0071A4F1 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B7A16F46290692E000126B56 /* NoteStorage.swift */,
+				B7275F6D29CA05A600F0013B /* NoteStorageProtocol.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		B7A16F08290685DD00126B56 = {
 			isa = PBXGroup;
 			children = (
-				B7A16F13290685DD00126B56 /* TodoListNotesApp */,
+				B7A16F13290685DD00126B56 /* TodoistNotesApp */,
 				B7A16F2A290685DF00126B56 /* Tests */,
-				B7A16F34290685DF00126B56 /* TodoListNotesAppUITests */,
+				B7A16F34290685DF00126B56 /* TodoistNotesAppUITests */,
 				B7A16F12290685DD00126B56 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,31 +167,29 @@
 		B7A16F12290685DD00126B56 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B7A16F11290685DD00126B56 /* TodoListNotesApp.app */,
-				B7A16F27290685DF00126B56 /* TodoListNotesAppTests.xctest */,
-				B7A16F31290685DF00126B56 /* TodoListNotesAppUITests.xctest */,
+				B7A16F11290685DD00126B56 /* TodoistNotesApp.app */,
+				B7A16F27290685DF00126B56 /* TodoistNotesAppTests.xctest */,
+				B7A16F31290685DF00126B56 /* TodoistNotesAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B7A16F13290685DD00126B56 /* TodoListNotesApp */ = {
+		B7A16F13290685DD00126B56 /* TodoistNotesApp */ = {
 			isa = PBXGroup;
 			children = (
 				B7A16F55290B166B00126B56 /* Controllers */,
+				B727176229CC8DC10071A4F1 /* Models */,
+				B727176329CC8DDC0071A4F1 /* Storage */,
+				B727176029CC8D7C0071A4F1 /* NetWork */,
+				B727175E29CC8CF60071A4F1 /* Router */,
 				B7A16F54290B165100126B56 /* Cells */,
-				B794898B293943EB00BB8409 /* Note.swift */,
-				B7275F6529C53DE500F0013B /* APIClient.swift */,
-				B7275F6729C53DFF00F0013B /* NoteModelRequest.swift */,
-				B7275F6929C53E1C00F0013B /* NoteModelResponse.swift */,
-				B7A16F46290692E000126B56 /* NoteStorage.swift */,
-				B7275F6D29CA05A600F0013B /* NoteStorageProtocol.swift */,
 				B7A16F1A290685DD00126B56 /* Main.storyboard */,
 				B7A16F1F290685DF00126B56 /* LaunchScreen.storyboard */,
 				B7A16F4A290978B800126B56 /* Media.xcassets */,
 				B7A16F22290685DF00126B56 /* Info.plist */,
 				B7A16F56290BDF6900126B56 /* Delegate */,
 			);
-			path = TodoListNotesApp;
+			path = TodoistNotesApp;
 			sourceTree = "<group>";
 		};
 		B7A16F2A290685DF00126B56 /* Tests */ = {
@@ -156,22 +200,22 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		B7A16F34290685DF00126B56 /* TodoListNotesAppUITests */ = {
+		B7A16F34290685DF00126B56 /* TodoistNotesAppUITests */ = {
 			isa = PBXGroup;
 			children = (
 				B7A16F35290685DF00126B56 /* toDoListUITests.swift */,
 				B7A16F37290685DF00126B56 /* toDoListUITestsLaunchTests.swift */,
 			);
-			path = TodoListNotesAppUITests;
+			path = TodoistNotesAppUITests;
 			sourceTree = "<group>";
 		};
 		B7A16F54290B165100126B56 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				B7A16F5D291FAE9D00126B56 /* Xib */,
+				B7880AB2292CD3A100DB42D3 /* TableViewCellNote.swift */,
 				B7A16F4E290B147000126B56 /* TableViewCellNoteTitle.swift */,
 				B7A16F59291FA70400126B56 /* TableViewCellNoteDescription.swift */,
-				B7880AB2292CD3A100DB42D3 /* TableViewCellFirst.swift */,
 				B7880AAE2920F67B00DB42D3 /* TableViewCellButton.swift */,
 			);
 			path = Cells;
@@ -181,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				B7A16F442906926900126B56 /* NoteListController.swift */,
-				B7275F6B29C9ECB500F0013B /* Router.swift */,
 				B7A16F4C290A8F5E00126B56 /* NoteController.swift */,
 			);
 			path = Controllers;
@@ -199,10 +242,10 @@
 		B7A16F5D291FAE9D00126B56 /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				B7880AB3292CD3A100DB42D3 /* TableViewCellNote.xib */,
 				B7A16F4F290B147000126B56 /* TableViewCellNoteTitle.xib */,
 				B7A16F5A291FA70400126B56 /* TableViewCellNoteDescription.xib */,
 				B7880AAF2920F67B00DB42D3 /* TableViewCellButton.xib */,
-				B7880AB3292CD3A100DB42D3 /* TableViewCellFirst.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -210,9 +253,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B7A16F10290685DD00126B56 /* TodoListNotesApp */ = {
+		B7A16F10290685DD00126B56 /* TodoistNotesApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B7A16F3B290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoListNotesApp" */;
+			buildConfigurationList = B7A16F3B290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoistNotesApp" */;
 			buildPhases = (
 				B7A16F0D290685DD00126B56 /* Sources */,
 				B7A16F0E290685DD00126B56 /* Frameworks */,
@@ -222,14 +265,14 @@
 			);
 			dependencies = (
 			);
-			name = TodoListNotesApp;
+			name = TodoistNotesApp;
 			productName = toDoList;
-			productReference = B7A16F11290685DD00126B56 /* TodoListNotesApp.app */;
+			productReference = B7A16F11290685DD00126B56 /* TodoistNotesApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B7A16F26290685DF00126B56 /* TodoListNotesAppTests */ = {
+		B7A16F26290685DF00126B56 /* TodoistNotesAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B7A16F3E290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoListNotesAppTests" */;
+			buildConfigurationList = B7A16F3E290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoistNotesAppTests" */;
 			buildPhases = (
 				B7A16F23290685DF00126B56 /* Sources */,
 				B7A16F24290685DF00126B56 /* Frameworks */,
@@ -240,14 +283,14 @@
 			dependencies = (
 				B7A16F29290685DF00126B56 /* PBXTargetDependency */,
 			);
-			name = TodoListNotesAppTests;
+			name = TodoistNotesAppTests;
 			productName = toDoListTests;
-			productReference = B7A16F27290685DF00126B56 /* TodoListNotesAppTests.xctest */;
+			productReference = B7A16F27290685DF00126B56 /* TodoistNotesAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B7A16F30290685DF00126B56 /* TodoListNotesAppUITests */ = {
+		B7A16F30290685DF00126B56 /* TodoistNotesAppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B7A16F41290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoListNotesAppUITests" */;
+			buildConfigurationList = B7A16F41290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoistNotesAppUITests" */;
 			buildPhases = (
 				B7A16F2D290685DF00126B56 /* Sources */,
 				B7A16F2E290685DF00126B56 /* Frameworks */,
@@ -258,9 +301,9 @@
 			dependencies = (
 				B7A16F33290685DF00126B56 /* PBXTargetDependency */,
 			);
-			name = TodoListNotesAppUITests;
+			name = TodoistNotesAppUITests;
 			productName = toDoListUITests;
-			productReference = B7A16F31290685DF00126B56 /* TodoListNotesAppUITests.xctest */;
+			productReference = B7A16F31290685DF00126B56 /* TodoistNotesAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -286,7 +329,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B7A16F0C290685DD00126B56 /* Build configuration list for PBXProject "TodoListNotesApp" */;
+			buildConfigurationList = B7A16F0C290685DD00126B56 /* Build configuration list for PBXProject "TodoistNotesApp" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -299,9 +342,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B7A16F10290685DD00126B56 /* TodoListNotesApp */,
-				B7A16F26290685DF00126B56 /* TodoListNotesAppTests */,
-				B7A16F30290685DF00126B56 /* TodoListNotesAppUITests */,
+				B7A16F10290685DD00126B56 /* TodoistNotesApp */,
+				B7A16F26290685DF00126B56 /* TodoistNotesAppTests */,
+				B7A16F30290685DF00126B56 /* TodoistNotesAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -311,7 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7880AB5292CD3A100DB42D3 /* TableViewCellFirst.xib in Resources */,
+				B7880AB5292CD3A100DB42D3 /* TableViewCellNote.xib in Resources */,
 				B7A16F5C291FA70400126B56 /* TableViewCellNoteDescription.xib in Resources */,
 				B7A16F21290685DF00126B56 /* LaunchScreen.storyboard in Resources */,
 				B7A16F4B290978B800126B56 /* Media.xcassets in Resources */,
@@ -354,7 +397,8 @@
 				B7A16F17290685DD00126B56 /* SceneDelegate.swift in Sources */,
 				B7275F6C29C9ECB500F0013B /* Router.swift in Sources */,
 				B7275F6E29CA05A600F0013B /* NoteStorageProtocol.swift in Sources */,
-				B7880AB4292CD3A100DB42D3 /* TableViewCellFirst.swift in Sources */,
+				B7880AB4292CD3A100DB42D3 /* TableViewCellNote.swift in Sources */,
+				B727175D29CC74920071A4F1 /* ApiClientProtocol.swift in Sources */,
 				B7A16F50290B147000126B56 /* TableViewCellNoteTitle.swift in Sources */,
 				B7A16F47290692E000126B56 /* NoteStorage.swift in Sources */,
 			);
@@ -382,12 +426,12 @@
 /* Begin PBXTargetDependency section */
 		B7A16F29290685DF00126B56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B7A16F10290685DD00126B56 /* TodoListNotesApp */;
+			target = B7A16F10290685DD00126B56 /* TodoistNotesApp */;
 			targetProxy = B7A16F28290685DF00126B56 /* PBXContainerItemProxy */;
 		};
 		B7A16F33290685DF00126B56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B7A16F10290685DD00126B56 /* TodoListNotesApp */;
+			target = B7A16F10290685DD00126B56 /* TodoistNotesApp */;
 			targetProxy = B7A16F32290685DF00126B56 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -538,7 +582,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7SJGX4PXZ2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TodoListNotesApp/Info.plist;
+				INFOPLIST_FILE = TodoistNotesApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TodoListNotesApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -569,7 +613,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7SJGX4PXZ2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TodoListNotesApp/Info.plist;
+				INFOPLIST_FILE = TodoistNotesApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TodoListNotesApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -605,7 +649,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoListNotesApp.app/TodoListNotesApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoistNotesApp.app/TodoistNotesApp";
 			};
 			name = Debug;
 		};
@@ -624,7 +668,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoListNotesApp.app/TodoListNotesApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoistNotesApp.app/TodoistNotesApp";
 			};
 			name = Release;
 		};
@@ -669,7 +713,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B7A16F0C290685DD00126B56 /* Build configuration list for PBXProject "TodoListNotesApp" */ = {
+		B7A16F0C290685DD00126B56 /* Build configuration list for PBXProject "TodoistNotesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B7A16F39290685DF00126B56 /* Debug */,
@@ -678,7 +722,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B7A16F3B290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoListNotesApp" */ = {
+		B7A16F3B290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoistNotesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B7A16F3C290685DF00126B56 /* Debug */,
@@ -687,7 +731,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B7A16F3E290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoListNotesAppTests" */ = {
+		B7A16F3E290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoistNotesAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B7A16F3F290685DF00126B56 /* Debug */,
@@ -696,7 +740,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B7A16F41290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoListNotesAppUITests" */ = {
+		B7A16F41290685DF00126B56 /* Build configuration list for PBXNativeTarget "TodoistNotesAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B7A16F42290685DF00126B56 /* Debug */,

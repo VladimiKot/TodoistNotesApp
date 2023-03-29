@@ -9,7 +9,6 @@ import Foundation
 
 protocol NoteStorageProtocol {
     
-    
     func addNote(note: Note, completion: @escaping ((Note) -> Void))
     
     func removeNote(id: String, completion: @escaping (([Note]) -> Void))
@@ -17,5 +16,7 @@ protocol NoteStorageProtocol {
     func getAllNotes(completion: @escaping (([Note]) -> Void))
     
     func getNote(id: String) -> Note?
+    
+    func update(note: Note) -> [Note]
     
 }

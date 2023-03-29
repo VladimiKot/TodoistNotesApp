@@ -10,8 +10,6 @@ struct Note {
     var id: String
     var completed: Bool
     
-    
-    
     init(description: String, title: String, id: String, completed: Bool) {
         self.description = description
         self.title = title

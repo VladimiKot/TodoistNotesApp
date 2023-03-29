@@ -7,7 +7,7 @@ import UIKit
 class NoteListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    let idCell = "TableViewCellFirst"
+    let idCell = "TableViewCellNote"
     let router: Router = Router()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var countAllNotes: UILabel!
@@ -85,7 +85,7 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as! TableViewCellFirst
+        let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as! TableViewCellNote
         var currentItem: Note
         
         if isFiltering {
@@ -93,31 +93,17 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             currentItem = allNotes[indexPath.row]
         }
-        cell.descLabel?.text = currentItem.title
-        cell.titleLabel?.text = currentItem.description
+
+         cell.updateNote(note: currentItem)
         
         cell.changeButtonTap = {
-            if self.noteStorage.getNote(id: currentItem.id)?.completed == true
-            {
-                let cellImage = tableView.cellForRow(at: indexPath) as! TableViewCellFirst
-                currentItem.completed = true
-                cellImage.imageChek.image = UIImage(named: "chek")
-                
-            } else {
-                let cellImage = tableView.cellForRow(at: indexPath) as! TableViewCellFirst
-                currentItem.completed = false
-                cellImage.imageChek.image = UIImage(named: "noChek")
-                
-            }
+            currentItem.completed.toggle()
+            let upd =  self.noteStorage.update(note: currentItem)
+            self.allNotes = upd
+            
+            tableView.reloadData()
         }
-        
-        if tableView.isEditing {
-            cell.descLabel?.alpha = 0.4
-            cell.imageChek?.alpha = 0.4
-        } else {
-            cell.descLabel?.alpha = 1
-            cell.imageChek?.alpha = 1
-        }
+
         return cell
     }
     

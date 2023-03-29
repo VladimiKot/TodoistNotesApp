@@ -76,7 +76,6 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                       id: self.id,
                                       completed: false)
                 self.noteItemStorage?.addNote(note: note) { [weak self] _ in
-                    
                     self?.onClosed?()
                     self?.router.closeController(controller: self!)
                 }
