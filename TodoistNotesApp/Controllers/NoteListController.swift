@@ -96,11 +96,6 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
 
          cell.updateNote(note: currentItem)
 
-//        noteStorage.getAllNotes { allNotes in
-//           let updateAllNotes = self.noteStorage.update(note: currentItem)
-//            self.allNotes = updateAllNotes
-//        }
-        
         cell.changeButtonTap = {
             
             currentItem.completed.toggle()

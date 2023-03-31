@@ -24,7 +24,6 @@ class TableViewCellNote: UITableViewCell {
         } else {
             imageChek.image = UIImage(named: "noChek")
         }
-        
     }
     
 }

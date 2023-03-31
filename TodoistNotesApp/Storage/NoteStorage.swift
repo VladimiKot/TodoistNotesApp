@@ -1,6 +1,6 @@
 //  TodoListNotesApp
 //  Created by Владимир on 18.03.2023.
-// map frist foreach
+
 
 import Foundation
 
@@ -26,8 +26,7 @@ class NoteStorage {
 extension NoteStorage : NoteStorageProtocol {
     
     func update(note: Note) -> [Note] {
-//        var notes: [Note] = []
-//        var index = 0
+
         let noteArray = storage.map { storedNote -> Note in
             if note.id == storedNote.id {
                 return note
@@ -39,21 +38,6 @@ extension NoteStorage : NoteStorageProtocol {
         
         return storage
     }
-//        for i in storage {
-//            if i.id == note.id {
-//                self.storage.remove(at: index)
-//                self.dictonaryNotes.removeValue(forKey: note.id)
-//
-//                break
-//            }
-//            index += 1
-//        }
-//
-//        storage.insert(note, at: index)
-//        self.dictonaryNotes.updateValue(note.completed, forKey: note.id)
-//        notes = storage
-//        return notes
- //   }
     
     func addNote(note: Note, completion: @escaping ((Note) -> Void)) {
         let noteRequestModel = mapRequest(note: note)
@@ -62,11 +46,11 @@ extension NoteStorage : NoteStorageProtocol {
                               parameters: ["clientId": "53552d946dcc437e91b3e1658b4de597"],
                               data: noteRequestModel) { [self] (result: Result<NoteModelResponse?, Error>) in
             switch result {
-            case let .success(note):
-                if self.dictonaryNotes[(note?.id)!] == nil {
-                    self.dictonaryNotes.updateValue((note?.isCompleted)!, forKey: (note?.id)!)
+            case let .success(noteResponse):
+                if self.dictonaryNotes[(note.id)] == nil {
+                    self.dictonaryNotes.updateValue((note.completed), forKey: (note.id))
                 }
-                let noteModel = mapResponse(noteResponse: note!)
+                let noteModel = mapResponse(noteResponse: noteResponse!)
                 completion(noteModel)
             case .failure(_):
                 print("Error")
@@ -112,6 +96,7 @@ extension NoteStorage : NoteStorageProtocol {
                 }
                 let allNotes = self.mapAllNotes(noteResponse: notes!)
                 self.storage = allNotes
+                
                 completion(allNotes)
             case .failure(_):
                 print("error")
@@ -145,7 +130,9 @@ private extension NoteStorage {
         for i in noteResponse {
             let note = self.mapResponse(noteResponse: i)
             notes.append(contentsOf: [note])
+
         }
         return notes
     }
+    
 }
