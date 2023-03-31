@@ -15,8 +15,6 @@ protocol NoteStorageProtocol {
     
     func getAllNotes(completion: @escaping (([Note]) -> Void))
     
-    func getNote(id: String) -> Note?
-    
     func update(note: Note) -> [Note]
     
 }

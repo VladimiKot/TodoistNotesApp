@@ -1,6 +1,6 @@
 //  TodoListNotesApp
 //  Created by Владимир on 18.03.2023.
-
+// map frist foreach
 
 import Foundation
 
@@ -26,24 +26,35 @@ class NoteStorage {
 extension NoteStorage : NoteStorageProtocol {
     
     func update(note: Note) -> [Note] {
-        var notes: [Note] = []
-        var index = 0
-        
-        for i in storage {
-            if i.id == note.id {
-                self.storage.remove(at: index)
+//        var notes: [Note] = []
+//        var index = 0
+        let noteArray = storage.map { storedNote -> Note in
+            if note.id == storedNote.id {
                 self.dictonaryNotes.removeValue(forKey: note.id)
-                
-                break
+                return note
             }
-            index += 1
+            return storedNote
         }
-        
-        storage.insert(note, at: index)
         self.dictonaryNotes.updateValue(note.completed, forKey: note.id)
-        notes = storage
-        return notes
+        storage = noteArray
+        
+        return storage
     }
+//        for i in storage {
+//            if i.id == note.id {
+//                self.storage.remove(at: index)
+//                self.dictonaryNotes.removeValue(forKey: note.id)
+//
+//                break
+//            }
+//            index += 1
+//        }
+//
+//        storage.insert(note, at: index)
+//        self.dictonaryNotes.updateValue(note.completed, forKey: note.id)
+//        notes = storage
+//        return notes
+ //   }
     
     func addNote(note: Note, completion: @escaping ((Note) -> Void)) {
         let noteRequestModel = mapRequest(note: note)
@@ -107,16 +118,6 @@ extension NoteStorage : NoteStorageProtocol {
             }
         }
     }
-    
-    func getNote(id: String) -> Note? {
-        for note in storage {
-            
-            if id == note.id {
-                return note
-            }
-        }
-        return nil
-    }
 }
 
 //MARK: private NoteStorage FUNC
@@ -141,11 +142,11 @@ private extension NoteStorage {
     
     func mapAllNotes(noteResponse: [NoteModelResponse]) -> [Note] {
         var notes: [Note] = []
-        for note in noteResponse {
-            let responseModel = self.mapResponse(noteResponse: note)
-            notes.append(contentsOf: [responseModel])
+        for i in noteResponse {
+            let note = self.mapResponse(noteResponse: i)
+            notes.append(contentsOf: [note])
         }
-        
+        storage.removeAll()
         storage.append(contentsOf: notes)
         return notes
     }
