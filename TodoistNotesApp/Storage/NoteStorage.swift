@@ -30,7 +30,6 @@ extension NoteStorage : NoteStorageProtocol {
 //        var index = 0
         let noteArray = storage.map { storedNote -> Note in
             if note.id == storedNote.id {
-                self.dictonaryNotes.removeValue(forKey: note.id)
                 return note
             }
             return storedNote
@@ -112,6 +111,7 @@ extension NoteStorage : NoteStorageProtocol {
                     }
                 }
                 let allNotes = self.mapAllNotes(noteResponse: notes!)
+                self.storage = allNotes
                 completion(allNotes)
             case .failure(_):
                 print("error")
@@ -146,8 +146,6 @@ private extension NoteStorage {
             let note = self.mapResponse(noteResponse: i)
             notes.append(contentsOf: [note])
         }
-        storage.removeAll()
-        storage.append(contentsOf: notes)
         return notes
     }
 }
