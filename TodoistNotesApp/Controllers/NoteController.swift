@@ -10,7 +10,7 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let router: Router = Router()
     var isEditScreenType: Bool = false
     @IBOutlet weak var tableView: UITableView!
-    var noteItemStorage: NoteStorage?
+    var noteStorage: NoteStorage?
     let idCellTitle = "TableViewCellNoteTitle"
     let idCellDescription = "TableViewCellNoteDescription"
     let idCellButton = "TableViewCellButton"
@@ -74,7 +74,7 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                       title: self.textTitle,
                                       id: self.id,
                                       completed: false)
-                self.noteItemStorage?.addNote(note: note) { [weak self] _ in
+                self.noteStorage?.addNote(note: note) { [weak self] _ in
                     self?.onClosed?()
                     self?.router.closeController(controller: self!)
                 }

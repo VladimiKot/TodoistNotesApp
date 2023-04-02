@@ -6,7 +6,7 @@ import Foundation
 
 class NoteStorage {
     
-    private var storage: [Note] = []
+    private var notes: [Note] = []
     let apiClient: APIClient = APIClient()
     let defaults = UserDefaults.standard
     
@@ -26,17 +26,17 @@ class NoteStorage {
 extension NoteStorage : NoteStorageProtocol {
     
     func update(note: Note) -> [Note] {
-
-        let noteArray = storage.map { storedNote -> Note in
+        
+        let notesArray = notes.map { storedNote -> Note in
             if note.id == storedNote.id {
                 return note
             }
             return storedNote
         }
         self.dictonaryNotes.updateValue(note.completed, forKey: note.id)
-        storage = noteArray
+        notes = notesArray
         
-        return storage
+        return notes
     }
     
     func addNote(note: Note, completion: @escaping ((Note) -> Void)) {
@@ -47,10 +47,12 @@ extension NoteStorage : NoteStorageProtocol {
                               data: noteRequestModel) { [self] (result: Result<NoteModelResponse?, Error>) in
             switch result {
             case let .success(noteResponse):
-                if self.dictonaryNotes[(note.id)] == nil {
-                    self.dictonaryNotes.updateValue((note.completed), forKey: (note.id))
+                guard let response = noteResponse else {return}
+                guard self.dictonaryNotes[(response.id!)] == nil else {
+                    self.dictonaryNotes.updateValue(note.completed, forKey: (response.id)!)
+                    return
                 }
-                let noteModel = mapResponse(noteResponse: noteResponse!)
+                let noteModel = mapResponse(noteResponse: response)
                 completion(noteModel)
             case .failure(_):
                 print("Error")
@@ -66,12 +68,12 @@ extension NoteStorage : NoteStorageProtocol {
             switch result {
             case .success(_):
                 var index = 0
-                for note in self.storage {
+                for note in self.notes {
                     if id == note.id {
-                        self.storage.remove(at: index)
+                        self.notes.remove(at: index)
                         self.dictonaryNotes.removeValue(forKey: note.id)
                         
-                        completion(self.storage)
+                        completion(self.notes)
                         break
                     }
                     index += 1
@@ -79,7 +81,6 @@ extension NoteStorage : NoteStorageProtocol {
             case .failure(_):
                 print("Error")
             }
-            
         }
     }
     
@@ -95,7 +96,7 @@ extension NoteStorage : NoteStorageProtocol {
                     }
                 }
                 let allNotes = self.mapAllNotes(noteResponse: notes!)
-                self.storage = allNotes
+                self.notes = allNotes
                 
                 completion(allNotes)
             case .failure(_):
@@ -126,13 +127,11 @@ private extension NoteStorage {
     }
     
     func mapAllNotes(noteResponse: [NoteModelResponse]) -> [Note] {
-        var notes: [Note] = []
-        for i in noteResponse {
-            let note = self.mapResponse(noteResponse: i)
-            notes.append(contentsOf: [note])
-
+        let notesArray = noteResponse.enumerated().map { response -> Note in
+            let note = self.mapResponse(noteResponse: response.element)
+            return note
         }
+        notes = notesArray
         return notes
     }
-    
 }

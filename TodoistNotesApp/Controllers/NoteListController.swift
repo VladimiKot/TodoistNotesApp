@@ -10,7 +10,7 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
     let idCell = "TableViewCellNote"
     let router: Router = Router()
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var countAllNotes: UILabel!
+    @IBOutlet weak var numberOfNotesLable: UILabel!
     private var allNotes: [Note] = []
     private let apiClient: APIClient = APIClient()
     private let searchController = UISearchController(searchResultsController: nil)
@@ -66,46 +66,46 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let countNotes = allNotes.count
+        let numberOfNotes = allNotes.count
         if isFiltering {
             return filtredDataNotes.count
 
         }
-        if countNotes == 0 {
-            countAllNotes.isHidden = true
-        } else if countNotes == 1 {
-            countAllNotes.isHidden = false
-            countAllNotes.text = "\(countNotes) note"
+        if numberOfNotes == 0 {
+            numberOfNotesLable.isHidden = true
+        } else if numberOfNotes == 1 {
+            numberOfNotesLable.isHidden = false
+            numberOfNotesLable.text = "\(numberOfNotes) note"
         } else {
-            countAllNotes.isHidden = false
-            countAllNotes.text = "\(countNotes) notes"
+            numberOfNotesLable.isHidden = false
+            numberOfNotesLable.text = "\(numberOfNotes) notes"
         }
         
-        return countNotes
+        return numberOfNotes
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as! TableViewCellNote
-        var currentItem: Note
+        let noteCell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as! TableViewCellNote
+        var currentNote: Note
         
         if isFiltering {
-            currentItem = filtredDataNotes[indexPath.row]
+            currentNote = filtredDataNotes[indexPath.row]
         } else {
-            currentItem = allNotes[indexPath.row]
+            currentNote = allNotes[indexPath.row]
         }
 
-         cell.updateNote(note: currentItem)
+        noteCell.updateNote(note: currentNote)
 
-        cell.changeButtonTap = {
+        noteCell.changeButtonTap = {
             
-            currentItem.completed.toggle()
-            let updateAllNotes = self.noteStorage.update(note: currentItem)
-            self.allNotes = updateAllNotes
+            currentNote.completed.toggle()
+            let updatedNotes = self.noteStorage.update(note: currentNote)
+            self.allNotes = updatedNotes
             
             tableView.reloadData()
         }
 
-        return cell
+        return noteCell
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -115,8 +115,8 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let currentItem = allNotes[indexPath.row]
-            noteStorage.removeNote(id: currentItem.id) { [weak self] allNotes in
+            let currentNote = allNotes[indexPath.row]
+            noteStorage.removeNote(id: currentNote.id) { [weak self] allNotes in
                 self?.allNotes = allNotes
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()

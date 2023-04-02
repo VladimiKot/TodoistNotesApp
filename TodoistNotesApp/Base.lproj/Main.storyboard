@@ -11,7 +11,7 @@
         <!--Note Controller-->
         <scene sceneID="UR3-Q4-cMo">
             <objects>
-                <viewController storyboardIdentifier="NoteController" id="Bbq-YN-9hS" customClass="NoteController" customModule="TodoListNotesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoteController" id="Bbq-YN-9hS" customClass="NoteController" customModule="TodoistNotesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hto-vm-u2r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
         <!--Note List-->
         <scene sceneID="lXE-WY-eII">
             <objects>
-                <viewController storyboardIdentifier="NoteListController" id="kiZ-vl-GYf" customClass="NoteListController" customModule="TodoListNotesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoteListController" id="kiZ-vl-GYf" customClass="NoteListController" customModule="TodoistNotesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X5B-JQ-Ttm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,7 @@
                     <navigationItem key="navigationItem" title="Note List" id="qGK-Uy-fuh"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="countAllNotes" destination="dle-kx-tB3" id="93f-Ag-k2E"/>
+                        <outlet property="numberOfNotesLable" destination="dle-kx-tB3" id="7f2-rN-bqO"/>
                         <outlet property="tableView" destination="PtA-yY-eRb" id="PHf-PX-zIk"/>
                     </connections>
                 </viewController>
