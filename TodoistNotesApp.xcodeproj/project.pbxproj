@@ -13,10 +13,10 @@
 		B7275F6A29C53E1C00F0013B /* NoteModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6929C53E1C00F0013B /* NoteModelResponse.swift */; };
 		B7275F6C29C9ECB500F0013B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6B29C9ECB500F0013B /* Router.swift */; };
 		B7275F6E29CA05A600F0013B /* NoteStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7275F6D29CA05A600F0013B /* NoteStorageProtocol.swift */; };
-		B7880AB02920F67B00DB42D3 /* TableViewCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7880AAE2920F67B00DB42D3 /* TableViewCellButton.swift */; };
-		B7880AB12920F67B00DB42D3 /* TableViewCellButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7880AAF2920F67B00DB42D3 /* TableViewCellButton.xib */; };
-		B7880AB4292CD3A100DB42D3 /* TableViewCellNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7880AB2292CD3A100DB42D3 /* TableViewCellNote.swift */; };
-		B7880AB5292CD3A100DB42D3 /* TableViewCellNote.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7880AB3292CD3A100DB42D3 /* TableViewCellNote.xib */; };
+		B7880AB02920F67B00DB42D3 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7880AAE2920F67B00DB42D3 /* ButtonTableViewCell.swift */; };
+		B7880AB12920F67B00DB42D3 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7880AAF2920F67B00DB42D3 /* ButtonTableViewCell.xib */; };
+		B7880AB4292CD3A100DB42D3 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7880AB2292CD3A100DB42D3 /* NoteTableViewCell.swift */; };
+		B7880AB5292CD3A100DB42D3 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7880AB3292CD3A100DB42D3 /* NoteTableViewCell.xib */; };
 		B794898C293943EB00BB8409 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = B794898B293943EB00BB8409 /* Note.swift */; };
 		B7A16F15290685DD00126B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F14290685DD00126B56 /* AppDelegate.swift */; };
 		B7A16F17290685DD00126B56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F16290685DD00126B56 /* SceneDelegate.swift */; };
@@ -29,10 +29,10 @@
 		B7A16F47290692E000126B56 /* NoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F46290692E000126B56 /* NoteStorage.swift */; };
 		B7A16F4B290978B800126B56 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A16F4A290978B800126B56 /* Media.xcassets */; };
 		B7A16F4D290A8F5E00126B56 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F4C290A8F5E00126B56 /* NoteController.swift */; };
-		B7A16F50290B147000126B56 /* TableViewCellNoteTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F4E290B147000126B56 /* TableViewCellNoteTitle.swift */; };
-		B7A16F51290B147000126B56 /* TableViewCellNoteTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7A16F4F290B147000126B56 /* TableViewCellNoteTitle.xib */; };
-		B7A16F5B291FA70400126B56 /* TableViewCellNoteDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F59291FA70400126B56 /* TableViewCellNoteDescription.swift */; };
-		B7A16F5C291FA70400126B56 /* TableViewCellNoteDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7A16F5A291FA70400126B56 /* TableViewCellNoteDescription.xib */; };
+		B7A16F50290B147000126B56 /* NoteTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F4E290B147000126B56 /* NoteTitleTableViewCell.swift */; };
+		B7A16F51290B147000126B56 /* NoteTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7A16F4F290B147000126B56 /* NoteTitleTableViewCell.xib */; };
+		B7A16F5B291FA70400126B56 /* NoteDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A16F59291FA70400126B56 /* NoteDescriptionTableViewCell.swift */; };
+		B7A16F5C291FA70400126B56 /* NoteDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7A16F5A291FA70400126B56 /* NoteDescriptionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +59,10 @@
 		B7275F6929C53E1C00F0013B /* NoteModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModelResponse.swift; sourceTree = "<group>"; };
 		B7275F6B29C9ECB500F0013B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B7275F6D29CA05A600F0013B /* NoteStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStorageProtocol.swift; sourceTree = "<group>"; };
-		B7880AAE2920F67B00DB42D3 /* TableViewCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellButton.swift; sourceTree = "<group>"; };
-		B7880AAF2920F67B00DB42D3 /* TableViewCellButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellButton.xib; sourceTree = "<group>"; };
-		B7880AB2292CD3A100DB42D3 /* TableViewCellNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellNote.swift; sourceTree = "<group>"; };
-		B7880AB3292CD3A100DB42D3 /* TableViewCellNote.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellNote.xib; sourceTree = "<group>"; };
+		B7880AAE2920F67B00DB42D3 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		B7880AAF2920F67B00DB42D3 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		B7880AB2292CD3A100DB42D3 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		B7880AB3292CD3A100DB42D3 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		B794898B293943EB00BB8409 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		B7A16F11290685DD00126B56 /* TodoistNotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoistNotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A16F14290685DD00126B56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,10 +79,10 @@
 		B7A16F46290692E000126B56 /* NoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStorage.swift; sourceTree = "<group>"; };
 		B7A16F4A290978B800126B56 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B7A16F4C290A8F5E00126B56 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
-		B7A16F4E290B147000126B56 /* TableViewCellNoteTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellNoteTitle.swift; sourceTree = "<group>"; };
-		B7A16F4F290B147000126B56 /* TableViewCellNoteTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellNoteTitle.xib; sourceTree = "<group>"; };
-		B7A16F59291FA70400126B56 /* TableViewCellNoteDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellNoteDescription.swift; sourceTree = "<group>"; };
-		B7A16F5A291FA70400126B56 /* TableViewCellNoteDescription.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellNoteDescription.xib; sourceTree = "<group>"; };
+		B7A16F4E290B147000126B56 /* NoteTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTitleTableViewCell.swift; sourceTree = "<group>"; };
+		B7A16F4F290B147000126B56 /* NoteTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTitleTableViewCell.xib; sourceTree = "<group>"; };
+		B7A16F59291FA70400126B56 /* NoteDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		B7A16F5A291FA70400126B56 /* NoteDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteDescriptionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,10 +213,10 @@
 			isa = PBXGroup;
 			children = (
 				B7A16F5D291FAE9D00126B56 /* Xib */,
-				B7880AB2292CD3A100DB42D3 /* TableViewCellNote.swift */,
-				B7A16F4E290B147000126B56 /* TableViewCellNoteTitle.swift */,
-				B7A16F59291FA70400126B56 /* TableViewCellNoteDescription.swift */,
-				B7880AAE2920F67B00DB42D3 /* TableViewCellButton.swift */,
+				B7880AB2292CD3A100DB42D3 /* NoteTableViewCell.swift */,
+				B7A16F4E290B147000126B56 /* NoteTitleTableViewCell.swift */,
+				B7A16F59291FA70400126B56 /* NoteDescriptionTableViewCell.swift */,
+				B7880AAE2920F67B00DB42D3 /* ButtonTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -242,10 +242,10 @@
 		B7A16F5D291FAE9D00126B56 /* Xib */ = {
 			isa = PBXGroup;
 			children = (
-				B7880AB3292CD3A100DB42D3 /* TableViewCellNote.xib */,
-				B7A16F4F290B147000126B56 /* TableViewCellNoteTitle.xib */,
-				B7A16F5A291FA70400126B56 /* TableViewCellNoteDescription.xib */,
-				B7880AAF2920F67B00DB42D3 /* TableViewCellButton.xib */,
+				B7880AB3292CD3A100DB42D3 /* NoteTableViewCell.xib */,
+				B7A16F4F290B147000126B56 /* NoteTitleTableViewCell.xib */,
+				B7A16F5A291FA70400126B56 /* NoteDescriptionTableViewCell.xib */,
+				B7880AAF2920F67B00DB42D3 /* ButtonTableViewCell.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -354,13 +354,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7880AB5292CD3A100DB42D3 /* TableViewCellNote.xib in Resources */,
-				B7A16F5C291FA70400126B56 /* TableViewCellNoteDescription.xib in Resources */,
+				B7880AB5292CD3A100DB42D3 /* NoteTableViewCell.xib in Resources */,
+				B7A16F5C291FA70400126B56 /* NoteDescriptionTableViewCell.xib in Resources */,
 				B7A16F21290685DF00126B56 /* LaunchScreen.storyboard in Resources */,
 				B7A16F4B290978B800126B56 /* Media.xcassets in Resources */,
-				B7A16F51290B147000126B56 /* TableViewCellNoteTitle.xib in Resources */,
+				B7A16F51290B147000126B56 /* NoteTitleTableViewCell.xib in Resources */,
 				B7A16F1C290685DD00126B56 /* Main.storyboard in Resources */,
-				B7880AB12920F67B00DB42D3 /* TableViewCellButton.xib in Resources */,
+				B7880AB12920F67B00DB42D3 /* ButtonTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,17 +389,17 @@
 				B7275F6829C53DFF00F0013B /* NoteModelRequest.swift in Sources */,
 				B7A16F15290685DD00126B56 /* AppDelegate.swift in Sources */,
 				B7275F6A29C53E1C00F0013B /* NoteModelResponse.swift in Sources */,
-				B7A16F5B291FA70400126B56 /* TableViewCellNoteDescription.swift in Sources */,
-				B7880AB02920F67B00DB42D3 /* TableViewCellButton.swift in Sources */,
+				B7A16F5B291FA70400126B56 /* NoteDescriptionTableViewCell.swift in Sources */,
+				B7880AB02920F67B00DB42D3 /* ButtonTableViewCell.swift in Sources */,
 				B7A16F452906926900126B56 /* NoteListController.swift in Sources */,
 				B7275F6629C53DE500F0013B /* APIClient.swift in Sources */,
 				B794898C293943EB00BB8409 /* Note.swift in Sources */,
 				B7A16F17290685DD00126B56 /* SceneDelegate.swift in Sources */,
 				B7275F6C29C9ECB500F0013B /* Router.swift in Sources */,
 				B7275F6E29CA05A600F0013B /* NoteStorageProtocol.swift in Sources */,
-				B7880AB4292CD3A100DB42D3 /* TableViewCellNote.swift in Sources */,
+				B7880AB4292CD3A100DB42D3 /* NoteTableViewCell.swift in Sources */,
 				B727175D29CC74920071A4F1 /* ApiClientProtocol.swift in Sources */,
-				B7A16F50290B147000126B56 /* TableViewCellNoteTitle.swift in Sources */,
+				B7A16F50290B147000126B56 /* NoteTitleTableViewCell.swift in Sources */,
 				B7A16F47290692E000126B56 /* NoteStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,7 +580,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7SJGX4PXZ2;
+				DEVELOPMENT_TEAM = G5LQ5U4VVN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoistNotesApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TodoListNotesApp;
@@ -594,7 +594,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Vk.toDoList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.todoistNoteApp123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -611,7 +611,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7SJGX4PXZ2;
+				DEVELOPMENT_TEAM = G5LQ5U4VVN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoistNotesApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TodoListNotesApp;
@@ -625,7 +625,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Vk.toDoList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.todoistNoteApp123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

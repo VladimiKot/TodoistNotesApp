@@ -3,7 +3,8 @@
 
 import UIKit
 
-class TableViewCellButton: UITableViewCell {
+class ButtonTableViewCell: UITableViewCell {
+    
     var onButtonTap: (() -> Void)?
     
     @IBAction func addItemCellButton(_ sender: Any) {

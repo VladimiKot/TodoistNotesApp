@@ -1,22 +1,27 @@
 //  TodoListNotesApp
 //  Created by Владимир on 18.03.2023.
 
-
 import Foundation
 
 class NoteStorage {
     
-    private var storage: [Note] = []
+    private var notes: [Note] = []
+    private let queue = DispatchQueue(label: "storageQue", attributes: .concurrent)
+    
     let apiClient: APIClient = APIClient()
     let defaults = UserDefaults.standard
     
     var dictonaryNotes: [String: Bool] {
         set {
-            defaults.set(newValue, forKey: "dictionaryNotes")
+            queue.async(flags: .barrier) { [weak self] in
+                self?.defaults.set(newValue, forKey: "dictionaryNotes")
+            }
         }
         get {
-            let retrieveDictionaryNotes = defaults.object(forKey: "dictionaryNotes") as? [String: Bool] ?? [String: Bool]()
-            return retrieveDictionaryNotes
+            queue.sync {
+                let retrieveDictionaryNotes = defaults.object(forKey: "dictionaryNotes") as? [String: Bool] ?? [String: Bool]()
+                return retrieveDictionaryNotes
+            }
         }
     }
 }
@@ -26,22 +31,15 @@ class NoteStorage {
 extension NoteStorage : NoteStorageProtocol {
     
     func update(note: Note) -> [Note] {
-        var notes: [Note] = []
-        var index = 0
-        
-        for i in storage {
-            if i.id == note.id {
-                self.storage.remove(at: index)
-                self.dictonaryNotes.removeValue(forKey: note.id)
-                
-                break
+        let updatedNotes = notes.map { storedNote -> Note in
+            if note.id == storedNote.id {
+                return note
             }
-            index += 1
+            return storedNote
         }
-        
-        storage.insert(note, at: index)
         self.dictonaryNotes.updateValue(note.completed, forKey: note.id)
-        notes = storage
+        notes = updatedNotes
+
         return notes
     }
     
@@ -50,13 +48,14 @@ extension NoteStorage : NoteStorageProtocol {
         guard let url = URL(string: "https://api.todoist.com/rest/v2/tasks") else { return }
         apiClient.postRequest(url: url,
                               parameters: ["clientId": "53552d946dcc437e91b3e1658b4de597"],
-                              data: noteRequestModel) { [self] (result: Result<NoteModelResponse?, Error>) in
+                              data: noteRequestModel) { [weak self] (result: Result<NoteModelResponse?, Error>) in
             switch result {
-            case let .success(note):
-                if self.dictonaryNotes[(note?.id)!] == nil {
-                    self.dictonaryNotes.updateValue((note?.isCompleted)!, forKey: (note?.id)!)
+            case let .success(noteResponse):
+                guard let response = noteResponse else {return}
+                if self?.dictonaryNotes[response.id!] == nil {
+                    self?.dictonaryNotes.updateValue(note.completed, forKey: (response.id)!)
                 }
-                let noteModel = mapResponse(noteResponse: note!)
+                guard let noteModel = self?.mapResponse(noteResponse: response) else {return}
                 completion(noteModel)
             case .failure(_):
                 print("Error")
@@ -68,54 +67,43 @@ extension NoteStorage : NoteStorageProtocol {
         guard let url = URL(string: "https://api.todoist.com/rest/v2/tasks/\(id)") else { return }
         apiClient.deleteRequest(url: url,
                                 parameters: ["clientId": "53552d946dcc437e91b3e1658b4de597"])
-        { (result: Result<NoteModelResponse?, Error>) in
+        { [weak self] (result: Result<NoteModelResponse?, Error>) in
+            guard let self = self else { return }
             switch result {
             case .success(_):
-                var index = 0
-                for note in self.storage {
-                    if id == note.id {
-                        self.storage.remove(at: index)
-                        self.dictonaryNotes.removeValue(forKey: note.id)
-                        
-                        completion(self.storage)
-                        break
-                    }
-                    index += 1
-                }
+                let filteredNotes = self.notes.filter { $0.id != id }
+                self.notes = filteredNotes
+                self.dictonaryNotes.removeValue(forKey: id)
+                completion(filteredNotes)
+
             case .failure(_):
                 print("Error")
             }
-            
         }
     }
     
     func getAllNotes(completion: @escaping (([Note]) -> Void)) {
         let url = URL(string: "https://api.todoist.com/rest/v2/tasks")
         apiClient.getRequest(url: url, parameters: ["clientId": "53552d946dcc437e91b3e1658b4de597"])
-        { (result: Result<Array<NoteModelResponse>?, Error>) in
+        {  (result: Result<Array<NoteModelResponse>?, Error>) in
             switch result {
-            case let .success(notes):
+            case let .success(notesResponse):
+                guard let notesResponse = notesResponse else {return}
                 if self.dictonaryNotes.isEmpty {
-                    for i in notes! {
-                        self.dictonaryNotes.updateValue(i.isCompleted!, forKey: i.id!)
-                    }
+                    notesResponse.forEach({ notesResponse in
+                        self.dictonaryNotes.updateValue(notesResponse.isCompleted!, forKey: notesResponse.id!)
+                    })
                 }
-                let allNotes = self.mapAllNotes(noteResponse: notes!)
-                completion(allNotes)
+                let notesArray = notesResponse.map { note in
+                    self.mapResponse(noteResponse: note)
+                }
+                self.notes = notesArray
+                completion(notesArray)
+
             case .failure(_):
                 print("error")
             }
         }
-    }
-    
-    func getNote(id: String) -> Note? {
-        for note in storage {
-            
-            if id == note.id {
-                return note
-            }
-        }
-        return nil
     }
 }
 
@@ -137,16 +125,5 @@ private extension NoteStorage {
                                 completed: dictonaryNotes[noteResponse.id!] ?? false)
         
         return noteResponse
-    }
-    
-    func mapAllNotes(noteResponse: [NoteModelResponse]) -> [Note] {
-        var notes: [Note] = []
-        for note in noteResponse {
-            let responseModel = self.mapResponse(noteResponse: note)
-            notes.append(contentsOf: [responseModel])
-        }
-        
-        storage.append(contentsOf: notes)
-        return notes
     }
 }

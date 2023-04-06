@@ -1,4 +1,3 @@
-//
 //  TodoListNotesApp
 //
 //  Created by Владимир on 18.03.2023.
@@ -11,10 +10,10 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let router: Router = Router()
     var isEditScreenType: Bool = false
     @IBOutlet weak var tableView: UITableView!
-    var noteItemStorage: NoteStorage?
-    let idCellTitle = "TableViewCellNoteTitle"
-    let idCellDescription = "TableViewCellNoteDescription"
-    let idCellButton = "TableViewCellButton"
+    var noteStorage: NoteStorageProtocol?
+    let idCellTitle = "NoteTitleTableViewCell"
+    let idCellDescription = "NoteDescriptionTableViewCell"
+    let idCellButton = "ButtonTableViewCell"
     var onClosed: (() -> Void)?
     var textTitle = ""
     var noteDescription = ""
@@ -47,7 +46,7 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var tableViewCell: UITableViewCell
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: idCellTitle, for: indexPath) as! TableViewCellNoteTitle
+            let cell = tableView.dequeueReusableCell(withIdentifier: idCellTitle, for: indexPath) as! NoteTitleTableViewCell
             if isEditScreenType {
                 cell.updateTitle(with: textTitle)
             }
@@ -58,7 +57,7 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.selectionStyle = .none
             tableViewCell = cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: idCellDescription, for: indexPath) as! TableViewCellNoteDescription
+            let cell = tableView.dequeueReusableCell(withIdentifier: idCellDescription, for: indexPath) as! NoteDescriptionTableViewCell
             if isEditScreenType {
                 cell.updateDescription(with: noteDescription)
             }
@@ -69,15 +68,15 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.selectionStyle = .none
             tableViewCell = cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: idCellButton, for: indexPath) as! TableViewCellButton
+            let cell = tableView.dequeueReusableCell(withIdentifier: idCellButton, for: indexPath) as! ButtonTableViewCell
             cell.onButtonTap = {
                 let note: Note = Note(description: self.noteDescription,
                                       title: self.textTitle,
                                       id: self.id,
                                       completed: false)
-                self.noteItemStorage?.addNote(note: note) { [weak self] _ in
+                self.noteStorage?.addNote(note: note) { [weak self] _ in
                     self?.onClosed?()
-                    self?.router.closeController(controller: self!)
+                    guard ((self?.router.closeController(controller: self!)) != nil) else {return}
                 }
             }
             tableViewCell = cell

@@ -3,7 +3,7 @@
 
 import UIKit
 
-class TableViewCellNote: UITableViewCell {
+class NoteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageChek: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
@@ -15,7 +15,7 @@ class TableViewCellNote: UITableViewCell {
         changeButtonTap?()
     }
     
-    func updateNote(note: Note) {
+    func cellConfigure(note: Note) {
         descLabel.text = note.title
         titleLabel.text = note.description
         
@@ -24,7 +24,6 @@ class TableViewCellNote: UITableViewCell {
         } else {
             imageChek.image = UIImage(named: "noChek")
         }
-        
     }
     
 }

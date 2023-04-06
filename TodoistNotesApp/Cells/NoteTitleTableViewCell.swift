@@ -4,7 +4,7 @@
 import UIKit
 
 
-class TableViewCellNoteTitle: UITableViewCell {
+class NoteTitleTableViewCell: UITableViewCell {
     
     @IBOutlet weak var noteTitle: UITextView!
     var onTitleEdit: ((String) -> Void)?
@@ -27,6 +27,7 @@ class TableViewCellNoteTitle: UITableViewCell {
         noteTitle.textContainer.lineBreakMode = .byWordWrapping
         noteTitle.textContainerInset = UIEdgeInsets.zero
         noteTitle.isScrollEnabled = false
+        noteTitle.becomeFirstResponder()
     }
     
     func updateTitle(with title: String) {
@@ -36,10 +37,9 @@ class TableViewCellNoteTitle: UITableViewCell {
 
 // MARK: - UITextFieldDelegate
 
-extension TableViewCellNoteTitle: UITextViewDelegate {
+extension NoteTitleTableViewCell: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         guard let noteText = noteTitle.text, !noteText.isEmpty else { return }
         onTitleEdit?(noteText)
     }
-    
 }

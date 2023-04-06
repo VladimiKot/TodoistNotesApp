@@ -1,4 +1,3 @@
-//
 //  NoteStorageProtocol.swift
 //  TodoListNotesApp
 //
@@ -14,8 +13,6 @@ protocol NoteStorageProtocol {
     func removeNote(id: String, completion: @escaping (([Note]) -> Void))
     
     func getAllNotes(completion: @escaping (([Note]) -> Void))
-    
-    func getNote(id: String) -> Note?
     
     func update(note: Note) -> [Note]
     
