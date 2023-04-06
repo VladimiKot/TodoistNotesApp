@@ -16,7 +16,7 @@ class Router {
         let noteController = storyBoard.instantiateViewController(withIdentifier: "NoteController") as! NoteController
         
         noteController.noteStorage = noteStorage
-        noteController.onClosed = { completion() }
+        noteController.onClosed = completion
         
         controller.navigationController?.pushViewController(noteController, animated: true)
         

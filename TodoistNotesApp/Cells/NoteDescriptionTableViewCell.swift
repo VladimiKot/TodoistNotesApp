@@ -3,7 +3,7 @@
 
 import UIKit
 
-class TableViewCellNoteDescription: UITableViewCell {
+class NoteDescriptionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var noteDescription: UITextView!
     var onDescriptionEdit: ((String) -> Void)?
@@ -14,7 +14,7 @@ class TableViewCellNoteDescription: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        noteDescription.becomeFirstResponder()
+
     }
     
     func conifgure() {
@@ -33,7 +33,7 @@ class TableViewCellNoteDescription: UITableViewCell {
     }
 }
 // MARK: - UITextFieldDelegate
-extension TableViewCellNoteDescription: UITextViewDelegate {
+extension NoteDescriptionTableViewCell: UITextViewDelegate {
     
     func textViewDidChangeSelection(_ textView: UITextView) {
         guard let noteDescription = noteDescription.text,

@@ -7,12 +7,12 @@ import UIKit
 class NoteListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    let idCell = "TableViewCellNote"
+    let idCell = "NoteTableViewCell"
     let router: Router = Router()
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var numberOfNotesLable: UILabel!
+    @IBOutlet weak var numberOfNote: UILabel!
     private var allNotes: [Note] = []
-    private let apiClient: APIClient = APIClient()
+    private let apiClient: ApiClientProtocol = APIClient()
     private let searchController = UISearchController(searchResultsController: nil)
     private var filtredDataNotes: [Note] = []
     
@@ -20,18 +20,18 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
-    
+
     private var isFiltering: Bool {
         return searchController.isActive && !searchBarIsEmpty
     }
     
-    private var noteStorage: NoteStorage = NoteStorage()
+    private var noteStorage: NoteStorageProtocol = NoteStorage()
     private let noteController: NoteController = NoteController()
     
     
     @IBAction func pushAddItem(_ sender: Any) {
         
-        router.openController(controller: self, noteStorage: noteStorage) { [weak self] in
+        router.openController(controller: self, noteStorage: noteStorage as! NoteStorage) { [weak self] in
             self?.noteStorage.getAllNotes(completion: { allNotes in
                 self?.allNotes = allNotes
                 self?.tableView.reloadData()
@@ -72,20 +72,20 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
 
         }
         if numberOfNotes == 0 {
-            numberOfNotesLable.isHidden = true
+            numberOfNote.isHidden = true
         } else if numberOfNotes == 1 {
-            numberOfNotesLable.isHidden = false
-            numberOfNotesLable.text = "\(numberOfNotes) note"
+            numberOfNote.isHidden = false
+            numberOfNote.text = "\(numberOfNotes) note"
         } else {
-            numberOfNotesLable.isHidden = false
-            numberOfNotesLable.text = "\(numberOfNotes) notes"
+            numberOfNote.isHidden = false
+            numberOfNote.text = "\(numberOfNotes) notes"
         }
         
         return numberOfNotes
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let noteCell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as! TableViewCellNote
+        let noteCell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as! NoteTableViewCell
         var currentNote: Note
         
         if isFiltering {
@@ -94,7 +94,7 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
             currentNote = allNotes[indexPath.row]
         }
 
-        noteCell.updateNote(note: currentNote)
+        noteCell.cellConfigure(note: currentNote)
 
         noteCell.changeButtonTap = {
             
