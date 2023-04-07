@@ -8,7 +8,7 @@ class NoteStorage {
     private var notes: [Note] = []
     private let queue = DispatchQueue(label: "storageQue", attributes: .concurrent)
     
-    let apiClient: APIClient = APIClient()
+    let apiClient: ApiClientProtocol = APIClient()
     let defaults = UserDefaults.standard
     
     var dictonaryNotes: [String: Bool] {
@@ -20,6 +20,7 @@ class NoteStorage {
         get {
             queue.sync {
                 let retrieveDictionaryNotes = defaults.object(forKey: "dictionaryNotes") as? [String: Bool] ?? [String: Bool]()
+                
                 return retrieveDictionaryNotes
             }
         }

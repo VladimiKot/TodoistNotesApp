@@ -5,49 +5,27 @@ import Foundation
 import UIKit
 
 class NoteListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+     
     
     let idCell = "NoteTableViewCell"
     let router: Router = Router()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfNote: UILabel!
     private var allNotes: [Note] = []
-    private let apiClient: ApiClientProtocol = APIClient()
     private let searchController = UISearchController(searchResultsController: nil)
-    private var filtredDataNotes: [Note] = []
+    private var searchNotes: [Note] = []
     
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
 
-    private var isFiltering: Bool {
+    private var isSearching: Bool {
         return searchController.isActive && !searchBarIsEmpty
     }
     
     private var noteStorage: NoteStorageProtocol = NoteStorage()
-    private let noteController: NoteController = NoteController()
-    
-    
-    @IBAction func pushAddItem(_ sender: Any) {
-        
-        router.openController(controller: self, noteStorage: noteStorage as! NoteStorage) { [weak self] in
-            self?.noteStorage.getAllNotes(completion: { allNotes in
-                self?.allNotes = allNotes
-                self?.tableView.reloadData()
-            })
-        }
-    }
-    
-    private func setupView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        tableView.backgroundColor = UIColor.secondarySystemBackground
-        tableView.register(UINib(nibName: idCell, bundle: nil),
-                           forCellReuseIdentifier: idCell)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -61,16 +39,42 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    @IBAction func pushAddItem(_ sender: Any) {
+    //
+        router.openNoteController(from: self, noteStorage: noteStorage as! NoteStorage) { [weak self] in
+            self?.noteStorage.getAllNotes(completion: { allNotes in
+                self?.allNotes = allNotes
+                self?.tableView.reloadData()
+            })
+        }
+    }
+    
+   private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+    }
+    
+    private func setupView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = UIColor.secondarySystemBackground
+        tableView.register(UINib(nibName: idCell, bundle: nil),
+                           forCellReuseIdentifier: idCell)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         let numberOfNotes = allNotes.count
-        if isFiltering {
-            return filtredDataNotes.count
-
+        if isSearching {
+            return searchNotes.count
         }
+        
         if numberOfNotes == 0 {
             numberOfNote.isHidden = true
         } else if numberOfNotes == 1 {
@@ -86,10 +90,11 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let noteCell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as! NoteTableViewCell
+
         var currentNote: Note
         
-        if isFiltering {
-            currentNote = filtredDataNotes[indexPath.row]
+        if isSearching {
+            currentNote = searchNotes[indexPath.row]
         } else {
             currentNote = allNotes[indexPath.row]
         }
@@ -144,20 +149,12 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
 
 extension NoteListController: UISearchResultsUpdating {
     
-    func setupSearchController() {
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-    }
-    
     func updateSearchResults(for searchController: UISearchController) {
         filterContentFor(searchText: searchController.searchBar.text!)
     }
     
-    func filterContentFor(searchText: String) {
-        filtredDataNotes = allNotes.filter({ (note: Note) in
+    func filterContentFor(searchText: String) { 
+        searchNotes = allNotes.filter({ (note: Note) in
             return note.title.lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()

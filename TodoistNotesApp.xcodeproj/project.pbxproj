@@ -127,12 +127,12 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		B727176029CC8D7C0071A4F1 /* NetWork */ = {
+		B727176029CC8D7C0071A4F1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				B727175F29CC8D690071A4F1 /* API */,
 			);
-			path = NetWork;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B727176229CC8DC10071A4F1 /* Models */ = {
@@ -180,7 +180,7 @@
 				B7A16F55290B166B00126B56 /* Controllers */,
 				B727176229CC8DC10071A4F1 /* Models */,
 				B727176329CC8DDC0071A4F1 /* Storage */,
-				B727176029CC8D7C0071A4F1 /* NetWork */,
+				B727176029CC8D7C0071A4F1 /* Network */,
 				B727175E29CC8CF60071A4F1 /* Router */,
 				B7A16F54290B165100126B56 /* Cells */,
 				B7A16F1A290685DD00126B56 /* Main.storyboard */,

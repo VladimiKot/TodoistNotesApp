@@ -76,7 +76,7 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                       completed: false)
                 self.noteStorage?.addNote(note: note) { [weak self] _ in
                     self?.onClosed?()
-                    guard ((self?.router.closeController(controller: self!)) != nil) else {return}
+                    guard ((self?.router.closeNoteController(from: self!)) != nil) else {return}
                 }
             }
             tableViewCell = cell
