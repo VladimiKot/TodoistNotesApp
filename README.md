@@ -1,20 +1,16 @@
 # TodoistnoteApp
 
-Hi all, I am a novice IOS developer and this is my first app
+Todo list and notes iOS application backed by official todoist.com public API.
 
-• The web service and task management software suite - todoist.com - was used for the work
+Architecture: MVC
 
-• Сlass is used for networking URLSession
+Used standard Apple SDK frameworks and API such as:
+• URLSession;
+• UIKit, Storyboards and AutoLayout;
+• GCD;
+• UserDefaults;
 
-• In my application I use the API, with the help of which I implemented the work on:
-- data saving;
-- uploading data;
-- delete data.
+Tried my best to follow some of S.O.L.I.D principles.
 
-• The application is written on MVC pattern, as well as adhering to the principles of S.O.L.I.D
 
-• The CALayer uses UIKit
 
-• Storing and saving data is done only in runtime
-
-• Uses UserDefaults to store data locally to change complition
