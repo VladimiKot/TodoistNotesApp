@@ -1,6 +1,3 @@
-//  TodoListNotesApp
-//  Created by Владимир on 18.03.2023.
-
 import Foundation
 
 class NoteStorage {
@@ -30,7 +27,7 @@ class NoteStorage {
 // MARK: NoteStorageProtocol
 
 extension NoteStorage : NoteStorageProtocol {
-    
+        
     func update(note: Note) -> [Note] {
         let updatedNotes = notes.map { storedNote -> Note in
             if note.id == storedNote.id {
@@ -48,11 +45,11 @@ extension NoteStorage : NoteStorageProtocol {
         let noteRequestModel = mapRequest(note: note)
         guard let url = URL(string: "https://api.todoist.com/rest/v2/tasks") else { return }
         apiClient.postRequest(url: url,
-                              parameters: ["clientId": "53552d946dcc437e91b3e1658b4de597"],
+                              parameters: ["clientId": "53552d946dcc437e91b3e1658b4de597"], // юрл параметры
                               data: noteRequestModel) { [weak self] (result: Result<NoteModelResponse?, Error>) in
             switch result {
             case let .success(noteResponse):
-                guard let response = noteResponse else {return}
+                guard let response = noteResponse else { return }
                 if self?.dictonaryNotes[response.id!] == nil {
                     self?.dictonaryNotes.updateValue(note.completed, forKey: (response.id)!)
                 }
@@ -74,7 +71,7 @@ extension NoteStorage : NoteStorageProtocol {
             case .success(_):
                 let filteredNotes = self.notes.filter { $0.id != id }
                 self.notes = filteredNotes
-                self.dictonaryNotes.removeValue(forKey: id)
+                self.dictonaryNotes[id] = nil
                 completion(filteredNotes)
 
             case .failure(_):

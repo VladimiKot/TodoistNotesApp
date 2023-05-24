@@ -1,10 +1,9 @@
-//  TodoListNotesApp
-//  Created by Владимир on 18.03.2023.
-
-
 import Foundation
 
 class APIClient {
+    
+    class EncodablePlaceHolder: Encodable {
+    }
     
     enum ApiErrors: Error {
         case failure
@@ -83,7 +82,7 @@ extension APIClient: ApiClientProtocol {
                                   completion: @escaping (Result<T?, Error>) -> Void) {
         makeRequest(url: url,
                     httpMethod: "GET",
-                    data: nil as NoteModelRequest?,
+                    data: nil as EncodablePlaceHolder?,
                     parameters: parameters,
                     completion: completion)
         
@@ -94,7 +93,7 @@ extension APIClient: ApiClientProtocol {
                                      completion: @escaping (Result<T?, Error>) -> Void) {
         makeRequest(url: url,
                     httpMethod: "DELETE",
-                    data: nil as NoteModelRequest?,
+                    data: nil as EncodablePlaceHolder?,
                     parameters: parameters,
                     completion: completion)
     }

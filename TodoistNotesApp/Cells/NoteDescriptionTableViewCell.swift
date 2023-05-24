@@ -1,6 +1,3 @@
-//  TodoListNotesApp
-//  Created by Владимир on 18.03.2023.
-
 import UIKit
 
 class NoteDescriptionTableViewCell: UITableViewCell {

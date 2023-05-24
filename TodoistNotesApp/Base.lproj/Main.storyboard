@@ -31,7 +31,7 @@
                             <constraint firstItem="ogt-zX-E1K" firstAttribute="trailing" secondItem="VUZ-Oa-5Ya" secondAttribute="trailing" id="oLC-Sd-0rF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5TZ-LL-c50"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="5TZ-LL-c50"/>
                     <connections>
                         <outlet property="tableView" destination="VUZ-Oa-5Ya" id="EJy-kM-KXN"/>
                     </connections>
@@ -49,20 +49,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PtA-yY-eRb">
-                                <rect key="frame" x="0.0" y="92" width="414" height="732.5"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="744"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" systemColor="systemGray2Color"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dle-kx-tB3" userLabel="numberOfNote">
-                                <rect key="frame" x="186" y="848.5" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="cZG-YN-uDu"/>
-                                    <constraint firstAttribute="width" constant="42" id="kB8-8D-SFd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.65483881050000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYu-Uz-IPI">
                                 <rect key="frame" x="354" y="844" width="40" height="30"/>
                                 <constraints>
@@ -78,26 +68,34 @@
                                     <action selector="pushAddItem:" destination="kiZ-vl-GYf" eventType="touchUpInside" id="bB5-P1-Cvr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdd-YD-NZO">
+                                <rect key="frame" x="158" y="849.5" width="98" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.65483881050000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qMh-xS-HES"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="PtA-yY-eRb" firstAttribute="top" secondItem="qMh-xS-HES" secondAttribute="top" id="37s-jg-MLC"/>
                             <constraint firstAttribute="bottom" secondItem="TYu-Uz-IPI" secondAttribute="bottom" constant="22" id="41K-Rw-mag"/>
-                            <constraint firstItem="PtA-yY-eRb" firstAttribute="leading" secondItem="qMh-xS-HES" secondAttribute="leading" id="BJE-lX-IUU"/>
-                            <constraint firstItem="dle-kx-tB3" firstAttribute="centerX" secondItem="qMh-xS-HES" secondAttribute="centerX" id="C3f-fE-xox"/>
-                            <constraint firstItem="TYu-Uz-IPI" firstAttribute="centerY" secondItem="dle-kx-tB3" secondAttribute="centerY" id="Foy-Yo-P0l"/>
-                            <constraint firstItem="PtA-yY-eRb" firstAttribute="trailing" secondItem="qMh-xS-HES" secondAttribute="trailing" id="P5P-Ym-MdZ"/>
-                            <constraint firstItem="dle-kx-tB3" firstAttribute="firstBaseline" secondItem="PtA-yY-eRb" secondAttribute="baseline" constant="40" id="VTS-08-IeD"/>
-                            <constraint firstItem="TYu-Uz-IPI" firstAttribute="leading" secondItem="dle-kx-tB3" secondAttribute="trailing" constant="126" id="Yhe-6L-fi2"/>
-                            <constraint firstItem="PtA-yY-eRb" firstAttribute="top" secondItem="qMh-xS-HES" secondAttribute="top" id="qRC-H7-Gph"/>
+                            <constraint firstItem="PtA-yY-eRb" firstAttribute="leading" secondItem="qMh-xS-HES" secondAttribute="leading" id="6lM-RV-cjk"/>
+                            <constraint firstItem="tdd-YD-NZO" firstAttribute="top" secondItem="PtA-yY-eRb" secondAttribute="bottom" constant="13.5" id="BSQ-rt-Tbf"/>
+                            <constraint firstItem="TYu-Uz-IPI" firstAttribute="leading" secondItem="tdd-YD-NZO" secondAttribute="trailing" constant="98" id="Mkc-vh-SH8"/>
+                            <constraint firstItem="qMh-xS-HES" firstAttribute="trailing" secondItem="PtA-yY-eRb" secondAttribute="trailing" id="bxk-gE-IkI"/>
+                            <constraint firstItem="PtA-yY-eRb" firstAttribute="trailing" secondItem="qMh-xS-HES" secondAttribute="trailing" id="ecO-uj-j5R"/>
+                            <constraint firstItem="tdd-YD-NZO" firstAttribute="leading" secondItem="X5B-JQ-Ttm" secondAttribute="leading" constant="158" id="fyB-a8-nTo"/>
                             <constraint firstAttribute="trailing" secondItem="TYu-Uz-IPI" secondAttribute="trailing" constant="20" symbolic="YES" id="t2z-Ub-UYZ"/>
+                            <constraint firstItem="PtA-yY-eRb" firstAttribute="leading" secondItem="qMh-xS-HES" secondAttribute="leading" id="t6c-qh-TPT"/>
+                            <constraint firstAttribute="bottom" secondItem="tdd-YD-NZO" secondAttribute="bottom" constant="26" id="zfw-yc-68T"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Note List" id="qGK-Uy-fuh"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="numberOfNote" destination="dle-kx-tB3" id="RNN-YY-hdy"/>
+                        <outlet property="numberOfNote" destination="tdd-YD-NZO" id="8dK-As-iY6"/>
                         <outlet property="tableView" destination="PtA-yY-eRb" id="PHf-PX-zIk"/>
                     </connections>
                 </viewController>

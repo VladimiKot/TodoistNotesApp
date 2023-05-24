@@ -1,12 +1,8 @@
-//  TodoListNotesApp
-//  Created by Владимир on 18.03.2023.
-
 import Foundation
 import UIKit
 
 class NoteListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
      
-    
     let idCell = "NoteTableViewCell"
     let router: Router = Router()
     @IBOutlet weak var tableView: UITableView!
@@ -40,8 +36,8 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func pushAddItem(_ sender: Any) {
-    //
-        router.openNoteController(from: self, noteStorage: noteStorage as! NoteStorage) { [weak self] in
+
+        router.openNoteController(from: self, note: nil, noteStorage: noteStorage) { [weak self] in
             self?.noteStorage.getAllNotes(completion: { allNotes in
                 self?.allNotes = allNotes
                 self?.tableView.reloadData()
@@ -117,7 +113,7 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
         
         return true
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let currentNote = allNotes[indexPath.row]
@@ -139,12 +135,10 @@ class NoteListController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let noteController = storyboard?.instantiateViewController(withIdentifier: "NoteController") as! NoteController
-        let getNote = allNotes[indexPath.row]
-        noteController.configure(with: getNote.title, with: getNote.description, isEditType: true)
-        navigationController?.pushViewController(noteController, animated: true)
+        let note = allNotes[indexPath.row]
+        router.openNoteController(from: self, note: note, noteStorage: noteStorage) {
+        }
     }
-    
 }
 
 extension NoteListController: UISearchResultsUpdating {

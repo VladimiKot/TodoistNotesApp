@@ -1,6 +1,3 @@
-//  TodoListNotesApp
-//  Created by Владимир on 18.03.2023.
-
 import UIKit
 
 class NoteTableViewCell: UITableViewCell {
@@ -19,7 +16,7 @@ class NoteTableViewCell: UITableViewCell {
         descLabel.text = note.title
         titleLabel.text = note.description
         
-        if note.completed == true {
+        if note.completed {
             imageChek.image = UIImage(named: "chek")
         } else {
             imageChek.image = UIImage(named: "noChek")

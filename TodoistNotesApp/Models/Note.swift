@@ -1,6 +1,3 @@
-//  TodoListNotesApp
-//  Created by Владимир on 18.03.2023.
-
 import Foundation
 
 struct Note {

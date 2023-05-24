@@ -1,6 +1,3 @@
-//  TodoListNotesApp
-//  Created by Владимир on 18.03.2023.
-
 import UIKit
 
 
@@ -15,9 +12,8 @@ class NoteTitleTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        noteTitle.becomeFirstResponder()
     }
-    
+
     func configure() {
         noteTitle.delegate = self
         noteTitle.isEditable = true
@@ -28,6 +24,7 @@ class NoteTitleTableViewCell: UITableViewCell {
         noteTitle.textContainerInset = UIEdgeInsets.zero
         noteTitle.isScrollEnabled = false
         noteTitle.becomeFirstResponder()
+        
     }
     
     func updateTitle(with title: String) {
@@ -43,3 +40,5 @@ extension NoteTitleTableViewCell: UITextViewDelegate {
         onTitleEdit?(noteText)
     }
 }
+
+

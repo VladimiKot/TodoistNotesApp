@@ -1,23 +1,18 @@
-//  TodoListNotesApp
-//
-//  Created by Владимир on 18.03.2023.
-
 import Foundation
 import UIKit
 
 class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let router: Router = Router()
+    let titleCellId = "NoteTitleTableViewCell"
+    let descriptionCellId = "NoteDescriptionTableViewCell"
+    let buttonCellId = "ButtonTableViewCell"
     var isEditScreenType: Bool = false
-    @IBOutlet weak var tableView: UITableView!
     var noteStorage: NoteStorageProtocol?
-    let idCellTitle = "NoteTitleTableViewCell"
-    let idCellDescription = "NoteDescriptionTableViewCell"
-    let idCellButton = "ButtonTableViewCell"
     var onClosed: (() -> Void)?
     var textTitle = ""
     var noteDescription = ""
-    var id = ""
+    @IBOutlet weak var tableView: UITableView!
     
     public func configure(with title: String,
                           with description: String,
@@ -30,23 +25,24 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        
     }
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: idCellTitle, bundle: nil),
-                           forCellReuseIdentifier: idCellTitle)
-        tableView.register(UINib(nibName: idCellDescription, bundle: nil),
-                           forCellReuseIdentifier: idCellDescription)
-        tableView.register(UINib(nibName: idCellButton, bundle: nil),
-                           forCellReuseIdentifier: idCellButton)
+        tableView.register(UINib(nibName: titleCellId, bundle: nil),
+                           forCellReuseIdentifier: titleCellId)
+        tableView.register(UINib(nibName: descriptionCellId, bundle: nil),
+                           forCellReuseIdentifier: descriptionCellId)
+        tableView.register(UINib(nibName: buttonCellId, bundle: nil),
+                           forCellReuseIdentifier: buttonCellId)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var tableViewCell: UITableViewCell
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: idCellTitle, for: indexPath) as! NoteTitleTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: titleCellId, for: indexPath) as! NoteTitleTableViewCell
             if isEditScreenType {
                 cell.updateTitle(with: textTitle)
             }
@@ -56,8 +52,9 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             cell.selectionStyle = .none
             tableViewCell = cell
+            
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: idCellDescription, for: indexPath) as! NoteDescriptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: descriptionCellId, for: indexPath) as! NoteDescriptionTableViewCell
             if isEditScreenType {
                 cell.updateDescription(with: noteDescription)
             }
@@ -67,21 +64,26 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             cell.selectionStyle = .none
             tableViewCell = cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: idCellButton, for: indexPath) as! ButtonTableViewCell
+            
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: buttonCellId, for: indexPath) as! ButtonTableViewCell
+            cell.configure()
             cell.onButtonTap = {
                 let note: Note = Note(description: self.noteDescription,
                                       title: self.textTitle,
-                                      id: self.id,
+                                      id: "",
                                       completed: false)
                 self.noteStorage?.addNote(note: note) { [weak self] _ in
-                    self?.onClosed?()
-                    guard ((self?.router.closeNoteController(from: self!)) != nil) else {return}
+                    guard let self = self else {return}
+                    self.onClosed?()
+                    self.router.closeNoteController(from: self)
                 }
             }
             tableViewCell = cell
+            
+        default:
+            return UITableViewCell()
         }
-        
         return tableViewCell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,19 +93,14 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return 3
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 50
-        } else if indexPath.row == 1 {
-            return 550
-        } else {
+        
+        switch indexPath.row {
+        case 1:
+            return 450
+        default:
             return 50
         }
     }
 }
-
-
-
-
-

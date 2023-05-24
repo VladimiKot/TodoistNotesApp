@@ -1,9 +1,3 @@
-//  NoteStorageProtocol.swift
-//  TodoListNotesApp
-//
-//  Created by Владимир on 21.03.2023.
-//
-
 import Foundation
 
 protocol NoteStorageProtocol {
