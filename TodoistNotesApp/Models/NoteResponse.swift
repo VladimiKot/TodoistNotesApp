@@ -1,6 +1,6 @@
 import Foundation
 
-struct NoteModelResponse: Decodable {
+struct NoteResponse: Decodable {
     
     enum CodingKeys: String, CodingKey {
 

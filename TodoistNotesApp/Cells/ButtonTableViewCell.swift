@@ -8,13 +8,18 @@ class ButtonTableViewCell: UITableViewCell {
         onButtonTap?()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configure()
+    }
+    
     @IBOutlet weak var button: UIButton!
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure() {
+   private func configure() {
         button.frame.size.width = 5
         button.frame.size.height = 5
         button.layer.cornerRadius = 20

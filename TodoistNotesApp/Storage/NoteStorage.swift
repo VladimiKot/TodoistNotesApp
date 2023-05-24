@@ -46,7 +46,7 @@ extension NoteStorage : NoteStorageProtocol {
         guard let url = URL(string: "https://api.todoist.com/rest/v2/tasks") else { return }
         apiClient.postRequest(url: url,
                               parameters: ["clientId": "53552d946dcc437e91b3e1658b4de597"], // юрл параметры
-                              data: noteRequestModel) { [weak self] (result: Result<NoteModelResponse?, Error>) in
+                              data: noteRequestModel) { [weak self] (result: Result<NoteResponse?, Error>) in
             switch result {
             case let .success(noteResponse):
                 guard let response = noteResponse else { return }
@@ -65,7 +65,7 @@ extension NoteStorage : NoteStorageProtocol {
         guard let url = URL(string: "https://api.todoist.com/rest/v2/tasks/\(id)") else { return }
         apiClient.deleteRequest(url: url,
                                 parameters: ["clientId": "53552d946dcc437e91b3e1658b4de597"])
-        { [weak self] (result: Result<NoteModelResponse?, Error>) in
+        { [weak self] (result: Result<NoteResponse?, Error>) in
             guard let self = self else { return }
             switch result {
             case .success(_):
@@ -83,7 +83,7 @@ extension NoteStorage : NoteStorageProtocol {
     func getAllNotes(completion: @escaping (([Note]) -> Void)) {
         let url = URL(string: "https://api.todoist.com/rest/v2/tasks")
         apiClient.getRequest(url: url, parameters: ["clientId": "53552d946dcc437e91b3e1658b4de597"])
-        {  (result: Result<Array<NoteModelResponse>?, Error>) in
+        {  (result: Result<Array<NoteResponse>?, Error>) in
             switch result {
             case let .success(notesResponse):
                 guard let notesResponse = notesResponse else {return}
@@ -109,14 +109,14 @@ extension NoteStorage : NoteStorageProtocol {
 
 private extension NoteStorage {
     
-    func mapRequest(note: Note) -> NoteModelRequest {
-        let noteRequest = NoteModelRequest(content: note.title,
+    func mapRequest(note: Note) -> NoteRequest {
+        let noteRequest = NoteRequest(content: note.title,
                                            description: note.description,
                                            isCompleted: note.completed)
         return noteRequest
     }
     
-    func mapResponse(noteResponse: NoteModelResponse) -> Note {
+    func mapResponse(noteResponse: NoteResponse) -> Note {
         let noteResponse = Note(description: noteResponse.description!,
                                 title: noteResponse.content!,
                                 id: noteResponse.id!,

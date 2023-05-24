@@ -46,7 +46,6 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if isEditScreenType {
                 cell.updateTitle(with: textTitle)
             }
-            cell.configure()
             cell.onTitleEdit = { [weak self] text in
                 self?.textTitle = text
             }
@@ -58,7 +57,6 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if isEditScreenType {
                 cell.updateDescription(with: noteDescription)
             }
-            cell.conifgure()
             cell.onDescriptionEdit = { [weak self] text in
                 self?.noteDescription = text
             }
@@ -67,14 +65,13 @@ class NoteController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: buttonCellId, for: indexPath) as! ButtonTableViewCell
-            cell.configure()
-            cell.onButtonTap = {
+            cell.onButtonTap = { [weak self] in
+                guard let self = self else { return }
                 let note: Note = Note(description: self.noteDescription,
                                       title: self.textTitle,
                                       id: "",
                                       completed: false)
-                self.noteStorage?.addNote(note: note) { [weak self] _ in
-                    guard let self = self else {return}
+                self.noteStorage?.addNote(note: note) {_ in
                     self.onClosed?()
                     self.router.closeNoteController(from: self)
                 }

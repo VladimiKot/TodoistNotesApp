@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class Router {
+class Router: RouterProtocol {
         
     func openNoteController(from vc: UIViewController,
                             note: Note?, noteStorage: NoteStorageProtocol,

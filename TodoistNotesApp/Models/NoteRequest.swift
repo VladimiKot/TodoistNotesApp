@@ -1,6 +1,6 @@
 import Foundation
 
-struct NoteModelRequest: Encodable {
+struct NoteRequest: Encodable {
     
     enum CodingKeys: String, CodingKey {
         case content

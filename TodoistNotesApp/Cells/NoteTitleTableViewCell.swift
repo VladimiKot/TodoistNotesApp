@@ -8,13 +8,14 @@ class NoteTitleTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        configure()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 
-    func configure() {
+   private func configure() {
         noteTitle.delegate = self
         noteTitle.isEditable = true
         noteTitle.textContainer.lineFragmentPadding = 0

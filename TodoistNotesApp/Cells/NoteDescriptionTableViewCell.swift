@@ -7,6 +7,7 @@ class NoteDescriptionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        confgure()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -14,7 +15,7 @@ class NoteDescriptionTableViewCell: UITableViewCell {
 
     }
     
-    func conifgure() {
+   private func confgure() {
         noteDescription.delegate = self
         noteDescription.isEditable = true
         noteDescription.textContainer.lineFragmentPadding = 0
@@ -29,6 +30,7 @@ class NoteDescriptionTableViewCell: UITableViewCell {
         noteDescription.text = description
     }
 }
+
 // MARK: - UITextFieldDelegate
 extension NoteDescriptionTableViewCell: UITextViewDelegate {
     
