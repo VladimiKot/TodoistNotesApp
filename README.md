@@ -1,6 +1,7 @@
 # TodoistnoteApp
 
 Hi all, I am a novice IOS developer and this is my first app
+
 • The web service and task management software suite - todoist.com - was used for the work
 
 • Сlass is used for networking URLSession
