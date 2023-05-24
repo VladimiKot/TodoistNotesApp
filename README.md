@@ -5,6 +5,7 @@ Todo list and notes iOS application backed by official todoist.com public API.
 Architecture: MVC
 
 Used standard Apple SDK frameworks and API such as:
+
 • URLSession;
 • UIKit, Storyboards and AutoLayout;
 • GCD;
