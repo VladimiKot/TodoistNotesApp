@@ -10,7 +10,11 @@ Hi all, I am a novice IOS developer and this is my first app
 - data saving;
 - uploading data;
 - delete data.
+
 • The application is written on MVC pattern, as well as adhering to the principles of S.O.L.I.D
+
 • The CALayer uses UIKit
+
 • Storing and saving data is done only in runtime
+
 • Uses UserDefaults to store data locally to change complition
